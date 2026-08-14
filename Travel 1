@@ -789,7 +789,7 @@
     </button>
 
     <script>
-        // 1. Theme Toggle Logic
+        // 1. Theme Toggle Logic (Updated for GitHub/Local Storage safety)
         function toggleTheme() {
             const body = document.documentElement;
             const btn = document.getElementById('themeBtn');
@@ -801,20 +801,37 @@
             setTimeout(() => { container.style.animation = 'jelly 0.5s ease'; }, 10);
             setTimeout(() => { container.style.animation = 'rainbowShadow 6s infinite linear'; }, 510);
 
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-                btn.innerHTML = '<span class="theme-icon">🌙</span> Dark';
-            } else {
-                body.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                btn.innerHTML = '<span class="theme-icon">☀️</span> Light';
+            try {
+                if (body.getAttribute('data-theme') === 'dark') {
+                    body.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                    btn.innerHTML = '<span class="theme-icon">🌙</span> Dark';
+                } else {
+                    body.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    btn.innerHTML = '<span class="theme-icon">☀️</span> Light';
+                }
+            } catch (e) {
+                console.warn("Local storage is restricted. Theme won't save across reloads.", e);
+                // Still toggle visually even if it won't save to storage
+                if (body.getAttribute('data-theme') === 'dark') {
+                    body.removeAttribute('data-theme');
+                    btn.innerHTML = '<span class="theme-icon">🌙</span> Dark';
+                } else {
+                    body.setAttribute('data-theme', 'dark');
+                    btn.innerHTML = '<span class="theme-icon">☀️</span> Light';
+                }
             }
         }
 
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            document.getElementById('themeBtn').innerHTML = '<span class="theme-icon">☀️</span> Light';
+        // Safely check local storage on load
+        try {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.getElementById('themeBtn').innerHTML = '<span class="theme-icon">☀️</span> Light';
+            }
+        } catch(e) {
+            console.warn("Local storage read restricted.");
         }
 
         // 2. Live Search Logic with Bouncy animations
@@ -835,7 +852,7 @@
             });
         }
 
-        // 3. Share button with explosive interaction
+        // 3. Share button (Updated for GitHub Pages/Clipboard safety)
         function shareWebsite() {
             const shareData = {
                 title: "GKDU Fresher's Guide 🚀",
@@ -846,22 +863,30 @@
             const btn = document.getElementById('shareButton');
             btn.style.animation = 'jelly 0.5s ease';
             
+            // Try native mobile sharing first
             if (navigator.share) {
                 navigator.share(shareData).catch((error) => console.log('Error sharing:', error));
-            } else {
-                navigator.clipboard.writeText(window.location.href);
-                const originalText = btn.innerHTML;
-                
-                btn.innerHTML = "✅ COPIED!";
-                btn.style.background = "var(--color-green)";
-                btn.style.transform = "scale(1.2) rotate(5deg)";
-                
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.background = "var(--color-blue)";
-                    btn.style.transform = "none";
-                    btn.style.animation = 'pulseAlert 3s infinite';
-                }, 2000);
+            } 
+            // Fallback to clipboard if available
+            else if (navigator.clipboard) {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    const originalText = btn.innerHTML;
+                    
+                    btn.innerHTML = "✅ COPIED!";
+                    btn.style.background = "var(--color-green)";
+                    btn.style.transform = "scale(1.2) rotate(5deg)";
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.style.background = "var(--color-blue)";
+                        btn.style.transform = "none";
+                        btn.style.animation = 'pulseAlert 3s infinite';
+                    }, 2000);
+                }).catch(err => console.error('Failed to copy text: ', err));
+            } 
+            // Final fallback
+            else {
+                alert("Link copying is blocked by your browser settings. You can copy the URL directly from the address bar!");
             }
         }
 
