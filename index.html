@@ -2,124 +2,131 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<meta name="google-site-verification"
-content="Ck-24AGvEDrzbbaaQAFbJKvtXCeFJHs_MHyeK7zBKbQ">
+<meta name="google-site-verification" content="Ck-24AGvEDrzbbaaQAFbJKvtXCeFJHs_MHyeK7zBKbQ">
 
-<title>GKDU Fresher's Guide 🚀</title>
+<title>GKDU Fresher's Guide 🪔</title>
 
 <meta name="description"
-content="The unofficial Gurukul Kangri University fresher's guide — portals, syllabus, academic resources, campus community, hostel information, FAQs and must-visit places.">
+content="The unofficial Gurukul Kangri Deemed-to-be University fresher's guide — portals, syllabus, academic resources, hostel information, campus community, FAQs and must-visit places.">
 
-<meta name="theme-color" content="#ffde00">
+<meta name="theme-color" content="#c75b12">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 /* =========================================================
    GKDU FRESHER'S GUIDE
-   PREMIUM SINGLE-FILE DESIGN
+   Premium Indian Heritage / Hindu-inspired UI
    ========================================================= */
 
 :root{
+    --bg:#fff8ec;
+    --surface:#fffdf8;
+    --surface2:#fff1d6;
+    --text:#24150d;
+    --muted:#735d4c;
+    --border:#32180b;
 
-    --bg:#f4f4ef;
-    --surface:#ffffff;
-    --surface2:#fafafa;
+    --saffron:#d95f0b;
+    --deep-saffron:#a83d08;
+    --gold:#e9aa22;
+    --gold2:#ffd76a;
+    --cream:#fff4dc;
+    --red:#b52b21;
+    --green:#27764a;
+    --blue:#397aa3;
 
-    --text:#101010;
-    --muted:#656565;
-
-    --border:#111111;
-
-    --yellow:#ffde00;
-    --green:#00e676;
-    --blue:#90e0ef;
-    --pink:#ff90e8;
-    --purple:#cdb4db;
-    --orange:#ffad60;
-
-    --shadow:7px 7px 0 #111;
+    --shadow:7px 7px 0 var(--border);
 
     --radius:18px;
-
-    --nav-height:72px;
-
-    --transition:.35s cubic-bezier(.2,.8,.2,1);
 }
 
 [data-theme="dark"]{
+    --bg:#17100c;
+    --surface:#211712;
+    --surface2:#2b1c14;
+    --text:#fff4df;
+    --muted:#d0b9a1;
+    --border:#f0c982;
 
-    --bg:#101010;
-    --surface:#1a1a1a;
-    --surface2:#222;
+    --saffron:#ed721c;
+    --deep-saffron:#b84b0d;
+    --gold:#e9ad32;
+    --gold2:#ffd56c;
+    --cream:#382318;
+    --red:#dc5144;
+    --green:#4da36e;
+    --blue:#5d9dc2;
 
-    --text:#f7f7f7;
-    --muted:#bcbcbc;
-
-    --border:#f4f4f4;
-
-    --shadow:6px 6px 0 #f4f4f4;
+    --shadow:7px 7px 0 #000;
 }
-
-/* RESET */
 
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
     scroll-behavior:smooth;
 }
 
-body{
-
-    font-family:"DM Sans",sans-serif;
-
-    background:
-        radial-gradient(circle at 10% 10%,rgba(255,222,0,.18),transparent 25%),
-        radial-gradient(circle at 90% 80%,rgba(144,224,239,.18),transparent 25%),
-        var(--bg);
-
-    color:var(--text);
-
-    min-height:100vh;
-
-    overflow-x:hidden;
-
-    transition:background .3s,color .3s;
+html{
+    scroll-padding-top:80px;
 }
 
+body{
+    margin:0;
+    color:var(--text);
+    background:
+        radial-gradient(circle at 10% 10%,rgba(217,95,11,.09),transparent 25%),
+        radial-gradient(circle at 90% 80%,rgba(233,170,34,.10),transparent 25%),
+        var(--bg);
+    font-family:"Space Grotesk","Noto Sans Devanagari",sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    transition:.4s;
+}
+
+/* =========================================================
+   DECORATIVE BACKGROUND
+   ========================================================= */
+
 body::before{
-
-    content:"";
-
+    content:"ॐ";
     position:fixed;
-
-    inset:0;
-
+    right:-70px;
+    top:80px;
+    font-family:"Noto Sans Devanagari",serif;
+    font-size:260px;
+    color:var(--saffron);
+    opacity:.035;
     pointer-events:none;
+    z-index:-1;
+    animation:floatOm 8s ease-in-out infinite;
+}
 
-    opacity:.18;
-
-    background-image:
-        radial-gradient(var(--border) 1px,transparent 1px);
-
-    background-size:22px 22px;
-
+body::after{
+    content:"";
+    position:fixed;
+    left:-150px;
+    bottom:-150px;
+    width:400px;
+    height:400px;
+    border:2px solid var(--gold);
+    border-radius:50%;
+    opacity:.08;
+    box-shadow:
+        0 0 0 25px transparent,
+        0 0 0 27px var(--gold),
+        0 0 0 55px transparent,
+        0 0 0 57px var(--gold);
+    pointer-events:none;
     z-index:-1;
 }
 
-button,
-input{
-    font:inherit;
+@keyframes floatOm{
+    0%,100%{transform:translateY(0) rotate(-3deg)}
+    50%{transform:translateY(20px) rotate(3deg)}
 }
 
 /* =========================================================
@@ -127,17 +134,12 @@ input{
    ========================================================= */
 
 .progress{
-
     position:fixed;
-
     top:0;
     left:0;
-
     width:0%;
     height:4px;
-
-    background:var(--yellow);
-
+    background:linear-gradient(90deg,var(--saffron),var(--gold),var(--red));
     z-index:9999;
 }
 
@@ -145,132 +147,85 @@ input{
    NAVBAR
    ========================================================= */
 
-.nav{
-
+.navbar{
     position:sticky;
-
-    top:12px;
-
-    width:min(1050px,calc(100% - 24px));
-
-    margin:12px auto 0;
-
+    top:0;
     z-index:1000;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    padding:12px 15px;
-
-    background:rgba(255,255,255,.78);
-
     backdrop-filter:blur(18px);
-
-    -webkit-backdrop-filter:blur(18px);
-
-    border:3px solid var(--border);
-
-    border-radius:20px;
-
-    box-shadow:4px 4px 0 var(--border);
-
-    transition:var(--transition);
+    background:color-mix(in srgb,var(--bg) 86%,transparent);
+    border-bottom:1px solid color-mix(in srgb,var(--border) 20%,transparent);
 }
 
-[data-theme="dark"] .nav{
-    background:rgba(25,25,25,.82);
-}
-
-.logo{
-
+.nav-inner{
+    max-width:1050px;
+    margin:auto;
+    min-height:68px;
+    padding:10px 20px;
     display:flex;
-
+    justify-content:space-between;
     align-items:center;
-
-    gap:10px;
-
-    text-decoration:none;
-
-    color:var(--text);
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-weight:700;
-
-    font-size:1.05rem;
+    gap:15px;
 }
 
-.logo-icon{
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    text-decoration:none;
+    color:var(--text);
+}
 
-    width:40px;
-    height:40px;
-
+.brand-symbol{
+    width:42px;
+    height:42px;
     display:grid;
     place-items:center;
-
-    background:var(--yellow);
-
-    color:#000;
-
-    border:3px solid var(--border);
-
-    border-radius:12px;
-
+    border:2px solid var(--border);
+    border-radius:50%;
+    background:linear-gradient(145deg,var(--gold2),var(--gold));
+    color:#341609;
+    font-family:"Noto Sans Devanagari",serif;
+    font-size:22px;
     box-shadow:3px 3px 0 var(--border);
 }
 
+.brand small{
+    display:block;
+    color:var(--muted);
+    font-size:10px;
+    letter-spacing:1px;
+}
+
 .nav-actions{
-
     display:flex;
-
     gap:8px;
 }
 
 .icon-btn{
-
+    border:2px solid var(--border);
+    background:var(--surface);
+    color:var(--text);
     width:42px;
     height:42px;
-
-    border:2px solid var(--border);
-
-    background:var(--surface);
-
-    color:var(--text);
-
-    border-radius:12px;
-
+    border-radius:50%;
     cursor:pointer;
-
-    display:grid;
-
-    place-items:center;
-
-    transition:.2s;
+    font-size:17px;
+    transition:.25s;
 }
 
 .icon-btn:hover{
-
-    transform:translateY(-2px);
-
-    background:var(--yellow);
-
-    color:#000;
+    transform:translateY(-3px) rotate(5deg);
+    background:var(--gold2);
 }
 
 /* =========================================================
    MAIN
    ========================================================= */
 
-main{
-
-    width:min(1050px,calc(100% - 24px));
-
-    margin:25px auto 70px;
+.container{
+    width:min(950px,calc(100% - 28px));
+    margin:28px auto 70px;
 }
 
 /* =========================================================
@@ -278,747 +233,424 @@ main{
    ========================================================= */
 
 .hero{
-
     position:relative;
-
     overflow:hidden;
+    padding:55px 30px;
+    text-align:center;
+    border:3px solid var(--border);
+    border-radius:28px;
+    background:
+        radial-gradient(circle at 50% 0%,rgba(255,215,106,.45),transparent 35%),
+        linear-gradient(135deg,var(--surface),var(--cream));
+    box-shadow:var(--shadow);
+    animation:heroIn .8s cubic-bezier(.2,.8,.2,1);
+}
 
-    padding:55px 45px;
-
-    border:4px solid var(--border);
-
-    border-radius:26px;
-
-    background:var(--yellow);
-
-    color:#000;
-
-    box-shadow:10px 10px 0 var(--border);
-
-    animation:heroIn .7s ease both;
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.97);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
 }
 
 .hero::before{
-
-    content:"GKDU";
-
+    content:"";
     position:absolute;
-
-    right:-30px;
-
-    bottom:-55px;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:10rem;
-
-    font-weight:700;
-
-    opacity:.08;
-
-    transform:rotate(-10deg);
-
-    pointer-events:none;
+    width:240px;
+    height:240px;
+    border:2px solid var(--gold);
+    border-radius:50%;
+    left:50%;
+    top:-130px;
+    transform:translateX(-50%);
+    box-shadow:
+        0 0 0 18px transparent,
+        0 0 0 20px rgba(233,170,34,.3),
+        0 0 0 40px transparent,
+        0 0 0 42px rgba(233,170,34,.2);
+    animation:spin 30s linear infinite;
 }
 
-.hero-content{
+@keyframes spin{
+    to{transform:translateX(-50%) rotate(360deg)}
+}
+
+.om{
     position:relative;
     z-index:2;
+    font-family:"Noto Sans Devanagari",serif;
+    font-size:48px;
+    color:var(--saffron);
+    animation:pulseOm 2.5s infinite;
 }
 
-.hero-badge{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:7px;
-
-    padding:7px 12px;
-
-    border:3px solid #000;
-
-    background:#fff;
-
-    border-radius:50px;
-
-    font-size:.8rem;
-
-    font-weight:700;
-
-    margin-bottom:20px;
+@keyframes pulseOm{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.08)}
 }
 
 .hero h1{
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:clamp(2.5rem,7vw,5rem);
-
-    line-height:.95;
-
-    letter-spacing:-4px;
-
-    max-width:750px;
+    position:relative;
+    z-index:2;
+    margin:5px 0;
+    font-size:clamp(2.2rem,7vw,4.2rem);
+    line-height:1;
+    letter-spacing:-3px;
 }
 
 .hero h1 span{
-    display:block;
+    color:var(--saffron);
 }
 
 .hero p{
-
-    max-width:650px;
-
-    margin-top:20px;
-
-    font-size:1.08rem;
-
-    font-weight:600;
-
-    line-height:1.6;
-}
-
-.hero-actions{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    margin-top:27px;
-}
-
-.hero-btn{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:8px;
-
-    padding:13px 18px;
-
-    border:3px solid #000;
-
-    border-radius:12px;
-
-    text-decoration:none;
-
-    color:#000;
-
-    background:#fff;
-
-    font-weight:700;
-
-    box-shadow:4px 4px 0 #000;
-
-    transition:.2s;
-}
-
-.hero-btn:hover{
-
-    transform:translate(4px,4px);
-
-    box-shadow:0 0 0 #000;
-}
-
-.hero-btn.primary{
-    background:#000;
-    color:#fff;
-}
-
-/* =========================================================
-   QUICK STATS
-   ========================================================= */
-
-.stats{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:14px;
-
-    margin:25px 0;
-}
-
-.stat{
-
-    padding:20px;
-
-    border:3px solid var(--border);
-
-    border-radius:17px;
-
-    background:var(--surface);
-
-    box-shadow:5px 5px 0 var(--border);
-
-    transition:var(--transition);
-}
-
-.stat:hover{
-    transform:translateY(-4px);
-}
-
-.stat-number{
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:2rem;
-
-    font-weight:700;
-}
-
-.stat-label{
-
-    color:var(--muted);
-
-    font-size:.85rem;
-
-    font-weight:600;
-}
-
-/* =========================================================
-   SEARCH
-   ========================================================= */
-
-.search-wrap{
-
     position:relative;
-
-    margin:30px 0;
-}
-
-.search{
-
-    width:100%;
-
-    padding:18px 52px 18px 18px;
-
-    border:3px solid var(--border);
-
-    border-radius:16px;
-
-    outline:none;
-
-    background:var(--surface);
-
-    color:var(--text);
-
-    font-size:1rem;
-
+    z-index:2;
+    max-width:650px;
+    margin:18px auto;
+    color:var(--muted);
     font-weight:600;
-
-    box-shadow:5px 5px 0 var(--border);
-
-    transition:.2s;
 }
 
-.search:focus{
-
-    box-shadow:7px 7px 0 var(--border);
-
-    transform:translate(-2px,-2px);
-
-    background:var(--yellow);
-
-    color:#000;
-}
-
-.search-icon{
-
-    position:absolute;
-
-    right:18px;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    font-size:1.3rem;
-}
-
-/* =========================================================
-   SECTION
-   ========================================================= */
-
-.section-title{
-
+.badges{
+    position:relative;
+    z-index:2;
     display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    margin:40px 0 15px;
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:1.35rem;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:22px;
 }
 
-.section-title::after{
-
-    content:"";
-
-    height:3px;
-
-    flex:1;
-
-    background:var(--border);
-
-    opacity:.25;
-}
-
-/* =========================================================
-   ACCORDION
-   ========================================================= */
-
-.accordion{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
-}
-
-.category{
-
+.badge{
+    border:2px solid var(--border);
+    padding:6px 12px;
+    border-radius:50px;
     background:var(--surface);
-
-    border:3px solid var(--border);
-
-    border-radius:17px;
-
-    box-shadow:5px 5px 0 var(--border);
-
-    overflow:hidden;
-
-    transition:var(--transition);
-}
-
-.category:hover{
-    transform:translateY(-2px);
-}
-
-.category.open{
-
-    box-shadow:7px 7px 0 var(--border);
-}
-
-.category-header{
-
-    width:100%;
-
-    border:0;
-
-    background:transparent;
-
-    color:var(--text);
-
-    padding:18px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
-    text-align:left;
-
-    cursor:pointer;
-}
-
-.category-icon{
-
-    flex:0 0 48px;
-
-    width:48px;
-    height:48px;
-
-    border:3px solid var(--border);
-
-    border-radius:13px;
-
-    display:grid;
-
-    place-items:center;
-
-    font-size:1.35rem;
-
-    background:var(--yellow);
-
-    color:#000;
-
+    font-size:12px;
+    font-weight:700;
     box-shadow:3px 3px 0 var(--border);
 }
 
-.category:nth-child(2) .category-icon{
-    background:var(--blue);
-}
-
-.category:nth-child(3) .category-icon{
-    background:var(--green);
-}
-
-.category:nth-child(4) .category-icon{
-    background:var(--pink);
-}
-
-.category:nth-child(5) .category-icon{
-    background:var(--purple);
-}
-
-.category:nth-child(6) .category-icon{
-    background:var(--orange);
-}
-
-.category:nth-child(7) .category-icon{
-    background:var(--green);
-}
-
-.category-text{
-    flex:1;
-}
-
-.category-text h3{
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:1.08rem;
-
-    margin-bottom:3px;
-}
-
-.category-text p{
-
-    color:var(--muted);
-
-    font-size:.82rem;
-
-    font-weight:500;
-}
-
-.chevron{
-
-    font-size:1.4rem;
-
-    transition:transform .35s;
-}
-
-.category.open .chevron{
-    transform:rotate(180deg);
-}
-
-.category-body{
-
-    display:grid;
-
-    grid-template-rows:0fr;
-
-    transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1);
-}
-
-.category.open .category-body{
-    grid-template-rows:1fr;
-}
-
-.category-inner{
-    overflow:hidden;
-}
-
-.category-content{
-
-    padding:0 18px 20px;
-
-    border-top:2px dashed var(--border);
-
-    padding-top:18px;
-}
-
 /* =========================================================
-   RESOURCE GRID
+   QUICK ACTIONS
    ========================================================= */
 
-.resource-grid{
-
+.quick{
     display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:12px;
+    margin:24px 0;
 }
 
-.resource{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    min-height:75px;
-
-    padding:14px;
-
+.quick-btn{
     border:2px solid var(--border);
-
-    border-radius:13px;
-
-    background:var(--surface2);
-
+    background:var(--surface);
     color:var(--text);
-
-    text-decoration:none;
-
-    transition:.25s;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.resource::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:80px;
-    height:80px;
-
-    border-radius:50%;
-
-    right:-40px;
-    bottom:-40px;
-
-    background:var(--yellow);
-
-    opacity:.25;
-
-    transition:.3s;
-}
-
-.resource:hover{
-
-    transform:translateY(-3px);
-
+    padding:16px 10px;
+    border-radius:15px;
+    font-family:inherit;
+    font-weight:700;
+    cursor:pointer;
     box-shadow:4px 4px 0 var(--border);
-}
-
-.resource:hover::after{
-    transform:scale(2);
-}
-
-.resource-icon{
-
-    width:38px;
-    height:38px;
-
-    flex:0 0 38px;
-
-    display:grid;
-
-    place-items:center;
-
-    border-radius:10px;
-
-    background:var(--yellow);
-
-    border:2px solid var(--border);
-
-    color:#000;
-
-    z-index:1;
-}
-
-.resource-info{
-    z-index:1;
-}
-
-.resource-title{
-
-    font-weight:700;
-
-    font-size:.92rem;
-}
-
-.resource-desc{
-
-    color:var(--muted);
-
-    font-size:.73rem;
-
-    margin-top:2px;
-}
-
-.external{
-    margin-left:auto;
-    z-index:1;
-}
-
-/* =========================================================
-   FEATURE CARD
-   ========================================================= */
-
-.feature{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:20px;
-
-    padding:20px;
-
-    border:3px solid var(--border);
-
-    border-radius:16px;
-
-    background:var(--blue);
-
-    color:#000;
-
-    box-shadow:5px 5px 0 var(--border);
-
-    margin-bottom:14px;
-}
-
-.feature h3{
-
-    font-family:"Space Grotesk",sans-serif;
-
-    margin-bottom:5px;
-}
-
-.feature p{
-
-    font-size:.9rem;
-
-    font-weight:600;
-}
-
-.feature-btn{
-
-    flex-shrink:0;
-
-    padding:11px 15px;
-
-    background:#000;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    border-radius:10px;
-
-    font-weight:700;
-
-    border:2px solid #000;
-
     transition:.2s;
 }
 
-.feature-btn:hover{
-    transform:translateY(-2px);
+.quick-btn:hover{
+    transform:translateY(-4px);
+    background:var(--gold2);
+}
+
+.quick-icon{
+    display:block;
+    font-size:23px;
+    margin-bottom:4px;
+}
+
+/* =========================================================
+   SECTION ACCORDIONS
+   ========================================================= */
+
+.section{
+    margin:18px 0;
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity .7s,transform .7s;
+}
+
+.section.visible{
+    opacity:1;
+    transform:none;
+}
+
+.section-box{
+    border:3px solid var(--border);
+    border-radius:20px;
+    background:var(--surface);
+    box-shadow:5px 5px 0 var(--border);
+    overflow:hidden;
+}
+
+.section-head{
+    width:100%;
+    border:0;
+    background:transparent;
+    color:var(--text);
+    padding:20px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    text-align:left;
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.section-head:hover{
+    background:rgba(217,95,11,.06);
+}
+
+.section-icon{
+    min-width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    border:2px solid var(--border);
+    border-radius:14px;
+    background:linear-gradient(145deg,var(--gold2),var(--gold));
+    font-size:22px;
+    box-shadow:3px 3px 0 var(--border);
+}
+
+.section-info{
+    flex:1;
+}
+
+.section-info h2{
+    margin:0;
+    font-size:18px;
+}
+
+.section-info p{
+    margin:2px 0 0;
+    color:var(--muted);
+    font-size:12px;
+}
+
+.chevron{
+    font-size:20px;
+    transition:.35s;
+}
+
+.section-box.open .chevron{
+    transform:rotate(180deg);
+}
+
+.section-content{
+    display:grid;
+    grid-template-rows:0fr;
+    transition:grid-template-rows .5s cubic-bezier(.2,.8,.2,1);
+}
+
+.section-box.open .section-content{
+    grid-template-rows:1fr;
+}
+
+.section-inner{
+    overflow:hidden;
+}
+
+.section-padding{
+    padding:0 20px 25px;
+    border-top:2px dashed color-mix(in srgb,var(--border) 40%,transparent);
+    padding-top:20px;
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+
+.card{
+    position:relative;
+    padding:20px;
+    border:2px solid var(--border);
+    border-radius:16px;
+    background:var(--surface2);
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:5px 5px 0 var(--border);
+}
+
+.card h3{
+    margin:0 0 8px;
+    font-size:16px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:13px;
+    margin:5px 0 15px;
+}
+
+.card-link{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    text-decoration:none;
+    color:#fff;
+    background:var(--saffron);
+    border:2px solid var(--border);
+    border-radius:10px;
+    padding:11px 13px;
+    font-weight:700;
+    font-size:13px;
+    box-shadow:3px 3px 0 var(--border);
+    transition:.15s;
+}
+
+.card-link:hover{
+    transform:translate(3px,3px);
+    box-shadow:none;
+}
+
+.card-link.gold{
+    background:var(--gold);
+    color:#281406;
+}
+
+.card-link.green{
+    background:var(--green);
+}
+
+.card-link.blue{
+    background:var(--blue);
+}
+
+.card-link.red{
+    background:var(--red);
+}
+
+/* =========================================================
+   FEATURED CARD
+   ========================================================= */
+
+.featured{
+    background:
+        linear-gradient(135deg,rgba(255,215,106,.4),transparent),
+        var(--surface2);
+    border:2px solid var(--border);
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:15px;
+}
+
+.featured-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.featured-title span{
+    background:var(--saffron);
+    color:white;
+    padding:5px 9px;
+    border-radius:8px;
+    font-size:11px;
+    font-weight:800;
+}
+
+.featured h3{
+    margin:0;
 }
 
 /* =========================================================
    FAQ
    ========================================================= */
 
-.faq-search{
-
-    margin-bottom:14px;
-
+.search{
     width:100%;
-
-    padding:14px;
-
     border:2px solid var(--border);
-
     border-radius:12px;
-
+    padding:14px;
     background:var(--surface);
-
     color:var(--text);
-
+    font:600 14px inherit;
     outline:none;
+    margin-bottom:15px;
+    box-shadow:3px 3px 0 var(--border);
+}
+
+.search:focus{
+    border-color:var(--saffron);
 }
 
 .faq{
-
     border:2px solid var(--border);
-
-    border-radius:12px;
-
+    border-radius:13px;
     overflow:hidden;
-
-    margin-bottom:9px;
+    margin-bottom:10px;
 }
 
-.faq button{
-
-    width:100%;
-
-    border:0;
-
-    background:var(--surface);
-
-    color:var(--text);
-
+.faq summary{
     padding:15px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    text-align:left;
-
-    font-weight:700;
-
     cursor:pointer;
+    font-weight:700;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.faq summary::-webkit-details-marker{
+    display:none;
+}
+
+.faq summary::after{
+    content:"+";
+    color:var(--saffron);
+    font-size:20px;
+}
+
+.faq[open] summary::after{
+    content:"−";
 }
 
 .faq-answer{
-
-    max-height:0;
-
-    overflow:hidden;
-
-    transition:max-height .4s ease;
-
-    background:var(--surface2);
-}
-
-.faq-answer div{
     padding:0 15px 15px;
     color:var(--muted);
-    font-size:.9rem;
-    line-height:1.6;
+    font-size:13px;
 }
 
-.faq.open .faq-answer{
-    max-height:300px;
+/* =========================================================
+   NOTICE
+   ========================================================= */
+
+.notice{
+    padding:17px;
+    border-left:6px solid var(--saffron);
+    border-top:2px solid var(--border);
+    border-right:2px solid var(--border);
+    border-bottom:2px solid var(--border);
+    border-radius:10px;
+    background:var(--surface2);
+    margin-top:15px;
 }
 
-.faq.open .faq-plus{
-    transform:rotate(45deg);
-}
-
-.faq-plus{
-    font-size:1.3rem;
-    transition:.3s;
+.notice strong{
+    color:var(--saffron);
 }
 
 /* =========================================================
@@ -1026,125 +658,52 @@ main{
    ========================================================= */
 
 .review{
-
-    margin-top:40px;
-
+    position:relative;
+    overflow:hidden;
+    margin-top:30px;
     padding:35px 25px;
-
     text-align:center;
+    border:3px solid var(--border);
+    border-radius:23px;
+    background:linear-gradient(135deg,var(--saffron),var(--deep-saffron));
+    color:white;
+    box-shadow:var(--shadow);
+}
 
-    background:var(--purple);
-
-    color:#000;
-
-    border:4px solid var(--border);
-
-    border-radius:22px;
-
-    box-shadow:8px 8px 0 var(--border);
-
-    transform:rotate(.4deg);
+.review::after{
+    content:"✦";
+    position:absolute;
+    font-size:180px;
+    opacity:.08;
+    right:-25px;
+    bottom:-90px;
 }
 
 .review h2{
-
-    font-family:"Space Grotesk",sans-serif;
-
-    font-size:2rem;
-
-    margin-bottom:8px;
+    margin:0 0 5px;
+    font-size:28px;
 }
 
 .review p{
-
-    font-weight:600;
-
-    margin-bottom:22px;
+    opacity:.9;
 }
 
-.review-btn{
-
+.review a{
     display:inline-block;
-
-    padding:14px 23px;
-
-    background:#000;
-
-    color:#fff;
-
+    padding:13px 22px;
+    border:2px solid #24150d;
+    border-radius:10px;
+    background:var(--gold2);
+    color:#24150d;
     text-decoration:none;
-
-    border-radius:11px;
-
-    font-weight:700;
-
-    border:3px solid #000;
-
+    font-weight:800;
+    box-shadow:4px 4px 0 #24150d;
     transition:.2s;
 }
 
-.review-btn:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:5px 5px 0 #000;
-}
-
-/* =========================================================
-   RECENT
-   ========================================================= */
-
-.recent{
-
-    margin-top:30px;
-
-    padding:18px;
-
-    background:var(--surface);
-
-    border:3px solid var(--border);
-
-    border-radius:17px;
-
-    box-shadow:5px 5px 0 var(--border);
-}
-
-.recent h3{
-
-    font-family:"Space Grotesk",sans-serif;
-
-    margin-bottom:12px;
-}
-
-.recent-list{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:8px;
-}
-
-.recent-item{
-
-    padding:8px 11px;
-
-    border:2px solid var(--border);
-
-    border-radius:50px;
-
-    color:var(--text);
-
-    text-decoration:none;
-
-    font-size:.78rem;
-
-    font-weight:700;
-}
-
-.recent-item:hover{
-    background:var(--yellow);
-    color:#000;
+.review a:hover{
+    transform:translate(4px,4px);
+    box-shadow:none;
 }
 
 /* =========================================================
@@ -1152,78 +711,63 @@ main{
    ========================================================= */
 
 footer{
-
     text-align:center;
-
-    padding:40px 15px;
-
     color:var(--muted);
-
-    font-size:.85rem;
+    padding:35px 10px 10px;
+    font-size:12px;
 }
 
-footer strong{
-    color:var(--text);
+footer .om-small{
+    font-family:"Noto Sans Devanagari",serif;
+    font-size:25px;
+    color:var(--saffron);
 }
 
 /* =========================================================
    FLOATING BUTTONS
    ========================================================= */
 
-.floating{
-
+.float-share,
+.top-btn{
     position:fixed;
-
     right:20px;
-
-    bottom:20px;
-
-    z-index:900;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:10px;
-}
-
-.float-btn{
-
-    width:50px;
-    height:50px;
-
-    border:3px solid var(--border);
-
-    background:var(--yellow);
-
-    color:#000;
-
-    border-radius:50%;
-
-    box-shadow:4px 4px 0 var(--border);
-
+    border:2px solid var(--border);
+    background:var(--saffron);
+    color:#fff;
+    font-family:inherit;
+    font-weight:800;
     cursor:pointer;
-
-    font-size:1.1rem;
-
+    box-shadow:4px 4px 0 var(--border);
+    z-index:900;
     transition:.2s;
 }
 
-.float-btn:hover{
-
-    transform:translate(3px,3px);
-
-    box-shadow:1px 1px 0 var(--border);
+.float-share{
+    bottom:22px;
+    border-radius:50px;
+    padding:12px 18px;
 }
 
-#topBtn{
+.top-btn{
+    bottom:76px;
+    width:42px;
+    height:42px;
+    border-radius:50%;
     opacity:0;
     pointer-events:none;
+    background:var(--gold);
+    color:#24150d;
 }
 
-#topBtn.visible{
+.top-btn.show{
     opacity:1;
     pointer-events:auto;
+}
+
+.float-share:hover,
+.top-btn:hover{
+    transform:translate(3px,3px);
+    box-shadow:none;
 }
 
 /* =========================================================
@@ -1231,82 +775,26 @@ footer strong{
    ========================================================= */
 
 .toast{
-
     position:fixed;
-
     left:50%;
-
     bottom:25px;
-
-    transform:translate(-50%,120px);
-
-    background:var(--text);
-
-    color:var(--bg);
-
-    padding:13px 18px;
-
-    border-radius:12px;
-
-    border:2px solid var(--border);
-
-    font-weight:700;
-
+    transform:translate(-50%,30px);
+    opacity:0;
+    pointer-events:none;
     z-index:9999;
-
-    transition:.4s;
+    padding:12px 18px;
+    border:2px solid var(--border);
+    border-radius:12px;
+    background:var(--surface);
+    color:var(--text);
+    box-shadow:4px 4px 0 var(--border);
+    font-weight:700;
+    transition:.3s;
 }
 
 .toast.show{
-    transform:translate(-50%,0);
-}
-
-/* =========================================================
-   REVEAL
-   ========================================================= */
-
-.reveal{
-
-    opacity:0;
-
-    transform:translateY(25px);
-
-    transition:.7s cubic-bezier(.2,.8,.2,1);
-}
-
-.reveal.show{
-
     opacity:1;
-
-    transform:none;
-}
-
-/* =========================================================
-   ANIMATIONS
-   ========================================================= */
-
-@keyframes heroIn{
-
-    from{
-        opacity:0;
-        transform:translateY(30px) scale(.98);
-    }
-
-    to{
-        opacity:1;
-        transform:none;
-    }
-}
-
-@keyframes pulse{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.08);
-    }
+    transform:translate(-50%,0);
 }
 
 /* =========================================================
@@ -1315,118 +803,63 @@ footer strong{
 
 @media(max-width:700px){
 
-    .nav{
-        top:8px;
-        margin-top:8px;
-    }
-
-    main{
+    .container{
+        width:min(100% - 18px,950px);
         margin-top:18px;
     }
 
     .hero{
-
-        padding:35px 22px;
-
+        padding:40px 18px;
         border-radius:20px;
-
-        box-shadow:7px 7px 0 var(--border);
     }
 
     .hero h1{
-
-        font-size:3rem;
-
-        letter-spacing:-2.5px;
+        letter-spacing:-2px;
     }
 
-    .hero p{
-        font-size:.95rem;
+    .quick{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .stats{
-
-        grid-template-columns:1fr;
-
-        gap:10px;
-    }
-
-    .stat{
-
-        display:flex;
-
-        align-items:center;
-
-        justify-content:space-between;
-    }
-
-    .resource-grid{
+    .cards{
         grid-template-columns:1fr;
     }
 
-    .category-header{
-        padding:14px;
+    .section-head{
+        padding:16px;
     }
 
-    .category-icon{
-
-        width:43px;
-        height:43px;
-
-        flex-basis:43px;
+    .section-padding{
+        padding-left:14px;
+        padding-right:14px;
     }
 
-    .category-text h3{
-        font-size:.98rem;
+    .section-icon{
+        min-width:42px;
+        width:42px;
+        height:42px;
     }
 
-    .category-text p{
-        font-size:.73rem;
+    .float-share{
+        right:12px;
+        bottom:14px;
     }
 
-    .feature{
-        align-items:flex-start;
-        flex-direction:column;
-    }
-
-    .feature-btn{
-        width:100%;
-        text-align:center;
-    }
-
-    .floating{
+    .top-btn{
         right:15px;
-        bottom:15px;
+        bottom:66px;
     }
-
-    .hero-actions{
-        flex-direction:column;
-    }
-
-    .hero-btn{
-        width:100%;
-    }
-
 }
 
-/* REDUCED MOTION */
-
 @media(prefers-reduced-motion:reduce){
-
     *,
     *::before,
     *::after{
-
-        animation-duration:.01ms!important;
-
-        animation-iteration-count:1!important;
-
+        animation:none!important;
+        transition:none!important;
         scroll-behavior:auto!important;
-
-        transition-duration:.01ms!important;
     }
 }
-
 </style>
 </head>
 
@@ -1434,689 +867,395 @@ footer strong{
 
 <div class="progress" id="progress"></div>
 
-<!-- =====================================================
-     NAVBAR
-     ===================================================== -->
+<!-- =======================================================
+     NAVIGATION
+     ======================================================= -->
 
-<nav class="nav">
+<nav class="navbar">
+    <div class="nav-inner">
 
-    <a href="#" class="logo">
+        <a href="#" class="brand">
+            <div class="brand-symbol">ॐ</div>
+            <div>
+                GKDU GUIDE
+                <small>FRESHER'S RESOURCE HUB</small>
+            </div>
+        </a>
 
-        <span class="logo-icon">🎓</span>
+        <div class="nav-actions">
 
-        <span>GKDU Guide</span>
+            <button class="icon-btn"
+                    id="themeBtn"
+                    onclick="toggleTheme()"
+                    aria-label="Toggle theme">
+                🌙
+            </button>
 
-    </a>
+            <button class="icon-btn"
+                    onclick="scrollToTop()"
+                    aria-label="Home">
+                🏠
+            </button>
 
-    <div class="nav-actions">
-
-        <button class="icon-btn"
-                onclick="focusSearch()"
-                aria-label="Search">
-
-            🔎
-
-        </button>
-
-        <button class="icon-btn"
-                onclick="toggleTheme()"
-                id="themeBtn"
-                aria-label="Toggle theme">
-
-            🌙
-
-        </button>
-
-        <button class="icon-btn"
-                onclick="shareSite()"
-                aria-label="Share">
-
-            ↗️
-
-        </button>
+        </div>
 
     </div>
-
 </nav>
 
 
-<main>
+<main class="container">
 
-<!-- =====================================================
+<!-- =======================================================
      HERO
-     ===================================================== -->
+     ======================================================= -->
 
 <section class="hero">
 
-    <div class="hero-content">
+    <div class="om">ॐ</div>
 
-        <div class="hero-badge">
+    <h1>
+        Gurukul <span>Kangri</span>
+    </h1>
 
-            🟢 UNOFFICIAL • STUDENT MADE
+    <p>
+        The unofficial digital guide for GKDU freshers —
+        everything you need, organized in one simple place.
+    </p>
 
-        </div>
-
-        <h1>
-
-            Gurukul<br>
-
-            <span>Kangri.</span>
-
-        </h1>
-
-        <p>
-
-            Your simple, modern and practical guide to
-            surviving and exploring GKDU. Everything important,
-            in one place.
-
-        </p>
-
-        <div class="hero-actions">
-
-            <a href="#guide"
-               class="hero-btn primary">
-
-                🚀 Explore Guide
-
-            </a>
-
-            <a href="https://gkvcommunity.github.io/Mustvisit-places/"
-               target="_blank"
-               class="hero-btn">
-
-                📍 Must Visit Places
-
-            </a>
-
-        </div>
-
+    <div class="badges">
+        <div class="badge">🎓 Freshers</div>
+        <div class="badge">📚 Academics</div>
+        <div class="badge">🏛️ Campus</div>
+        <div class="badge">🗺️ Haridwar</div>
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     QUICK STATS
-     ===================================================== -->
+<!-- =======================================================
+     QUICK ACCESS
+     ======================================================= -->
 
-<section class="stats reveal">
+<div class="quick">
 
-    <div class="stat">
+    <button class="quick-btn" onclick="openSection('syllabus')">
+        <span class="quick-icon">📚</span>
+        Syllabus
+    </button>
 
-        <div>
+    <button class="quick-btn" onclick="openSection('portals')">
+        <span class="quick-icon">🏛️</span>
+        Portals
+    </button>
 
-            <div class="stat-number">7+</div>
+    <button class="quick-btn" onclick="openSection('places')">
+        <span class="quick-icon">🗺️</span>
+        Places
+    </button>
 
-            <div class="stat-label">
-                Useful Categories
-            </div>
-
-        </div>
-
-        <span>📚</span>
-
-    </div>
-
-    <div class="stat">
-
-        <div>
-
-            <div class="stat-number">20+</div>
-
-            <div class="stat-label">
-                Student Resources
-            </div>
-
-        </div>
-
-        <span>🔗</span>
-
-    </div>
-
-    <div class="stat">
-
-        <div>
-
-            <div class="stat-number">24/7</div>
-
-            <div class="stat-label">
-                Always Available
-            </div>
-
-        </div>
-
-        <span>⚡</span>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SEARCH
-     ===================================================== -->
-
-<div class="search-wrap reveal">
-
-    <input
-        id="globalSearch"
-        class="search"
-        type="search"
-        placeholder="Search the guide... try “syllabus”, “hostel” or “papers”"
-        autocomplete="off">
-
-    <span class="search-icon">⌕</span>
+    <button class="quick-btn" onclick="openSection('faq')">
+        <span class="quick-icon">❓</span>
+        FAQs
+    </button>
 
 </div>
 
 
-<!-- =====================================================
-     GUIDE
-     ===================================================== -->
+<!-- =======================================================
+     COLLEGE PORTALS
+     ======================================================= -->
 
-<section id="guide">
+<section class="section" id="portals">
 
-    <h2 class="section-title">
+<div class="section-box">
 
-        Everything you need
+<button class="section-head" onclick="toggleSection(this)">
 
-    </h2>
+    <div class="section-icon">🏛️</div>
 
-
-    <div class="accordion">
-
-
-<!-- =====================================================
-     COLLEGE SERVICES
-     ===================================================== -->
-
-<div class="category reveal">
-
-<button class="category-header">
-
-    <span class="category-icon">🏛️</span>
-
-    <span class="category-text">
-
-        <h3>College Portals & Services</h3>
-
+    <div class="section-info">
+        <h2>College Portals & Services</h2>
         <p>Official websites and student services</p>
+    </div>
 
-    </span>
-
-    <span class="chevron">⌄</span>
+    <div class="chevron">⌄</div>
 
 </button>
 
-<div class="category-body">
+<div class="section-content">
+<div class="section-inner">
+<div class="section-padding">
 
-<div class="category-inner">
+<div class="cards">
 
-<div class="category-content">
-
-<div class="resource-grid">
-
-
-<a class="resource"
+<div class="card">
+<h3>🌐 Main Website</h3>
+<p>University's primary website.</p>
+<a class="card-link"
 href="https://share.google/vnUCMSDR4Nt3ovtIa"
 target="_blank">
-
-<span class="resource-icon">🌐</span>
-
-<span class="resource-info">
-
-<span class="resource-title">
-Main Website
-</span>
-
-<span class="resource-desc">
-University website
-</span>
-
-</span>
-
-<span class="external">↗</span>
-
+Open Website ↗
 </a>
+</div>
 
-
-<a class="resource"
+<div class="card">
+<h3>🔐 Student Portal</h3>
+<p>Access the alternate student portal.</p>
+<a class="card-link green"
 href="https://share.google/mQrSIhndp8oXtUgdC"
 target="_blank">
-
-<span class="resource-icon">🔐</span>
-
-<span class="resource-info">
-
-<span class="resource-title">
-Alternate Portal
-</span>
-
-<span class="resource-desc">
-Student portal
-</span>
-
-</span>
-
-<span class="external">↗</span>
-
+Open Portal ↗
 </a>
+</div>
 
-
-<a class="resource"
+<div class="card">
+<h3>💳 Fee Receipt</h3>
+<p>Download your fee receipt.</p>
+<a class="card-link gold"
 href="https://share.google/f4ZzQM094yr221HPa"
 target="_blank">
-
-<span class="resource-icon">💳</span>
-
-<span class="resource-info">
-
-<span class="resource-title">
-Fee Receipt
-</span>
-
-<span class="resource-desc">
-Download fee receipt
-</span>
-
-</span>
-
-<span class="external">↗</span>
-
+Download ↗
 </a>
+</div>
 
-
-<a class="resource"
+<div class="card">
+<h3>📊 Results</h3>
+<p>Check examination results.</p>
+<a class="card-link blue"
 href="https://share.google/dKpY3ByxepoVHzmUV"
 target="_blank">
-
-<span class="resource-icon">📊</span>
-
-<span class="resource-info">
-
-<span class="resource-title">
-Check Results
-</span>
-
-<span class="resource-desc">
-View examination results
-</span>
-
-</span>
-
-<span class="external">↗</span>
-
+Check Results ↗
 </a>
-
 </div>
 
 </div>
 
 </div>
-
+</div>
 </div>
 
 </div>
+</section>
 
 
-<!-- =====================================================
-     COMMUNITY
-     ===================================================== -->
-
-<div class="category reveal">
-
-<button class="category-header">
-
-    <span class="category-icon">📱</span>
-
-    <span class="category-text">
-
-        <h3>Campus Community</h3>
-
-        <p>Student groups and social pages</p>
-
-    </span>
-
-    <span class="chevron">⌄</span>
-
-</button>
-
-<div class="category-body">
-
-<div class="category-inner">
-
-<div class="category-content">
-
-<div class="resource-grid">
-
-
-<a class="resource"
-href="https://ig.me/j/AbYV1fHlJ03KWBBm/"
-target="_blank">
-
-<span class="resource-icon">👨‍🎓</span>
-
-<span class="resource-info">
-
-<span class="resource-title">
-Boys Discussion
-</span>
-
-<span class="resource-desc">
-Student community
-</span>
-
-</span>
-
-<span class="external">↗</span>
-
-</a>
-
-
-<a class="resource"
-href="https://ig.me/j/AbYq82f0ZOMoNNI3/"
-target="_blank">
-
-<span class="resource-icon">👩‍🎓</span>
-
-<span class="resource-info">
-
-<span class="resource-title">
-Girls Discussion
-</span>
-
-<span class="resource-desc">
-Student community
-</span>
-
-</span>
-
-<span class="external">↗</span>
-
-</a>
-
-
-<a class="resource"
-href="https://www.instagram.com/gkv_hdr/"
-target="_blank">
-
-<span class="resource-icon">📸</span>
-
-<span class="resource-info">
-
-<span class="resource-title">
-Official GKV
-</span>
-
-<span class="resource-desc">
-Official Instagram
-</span>
-
-</span>
-
-<span class="external">↗</span>
-
-</a>
-
-
-<a class="resource"
-href="https://www.instagram.com/gkviians/"
-target="_blank">
-
-<span class="resource-icon">😂</span>
-
-<span class="resource-info">
-
-<span class="resource-title">
-@gkviians
-</span>
-
-<span class="resource-desc">
-Memes & community
-</span>
-
-</span>
-
-<span class="external">↗</span>
-
-</a>
-
-
-<a class="resource"
-href="https://www.instagram.com/na_samaz_bandar/"
-target="_blank">
-
-<span class="resource-icon">📱</span>
-
-<span class="resource-info">
-
-<span class="resource-title">
-Student Page
-</span>
-
-<span class="resource-desc">
-Campus community
-</span>
-
-</span>
-
-<span class="external">↗</span>
-
-</a>
-
-
-<a class="resource"
-href="https://www.instagram.com/lekhram_diaries/"
-target="_blank">
-
-<span class="resource-icon">🏠</span>
-
-<span class="resource-info">
-
-<span class="resource-title">
-Lekhram Diaries
-</span>
-
-<span class="resource-desc">
-Hostel community
-</span>
-
-</span>
-
-<span class="external">↗</span>
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     ACADEMIC
-     ===================================================== -->
-
-<div class="category reveal">
-
-<button class="category-header">
-
-    <span class="category-icon">📚</span>
-
-    <span class="category-text">
-
-        <h3>Academic Resources</h3>
-
-        <p>Papers, notes and study material</p>
-
-    </span>
-
-    <span class="chevron">⌄</span>
-
-</button>
-
-<div class="category-body">
-
-<div class="category-inner">
-
-<div class="category-content">
-
-
-<div class="feature">
-
-<div>
-
-<h3>📂 All Previous Papers</h3>
-
-<p>
-Access the shared academic collection.
-</p>
-
-</div>
-
-<a class="feature-btn"
-href="https://drive.google.com/drive/mobile/folders/1nVBWVYDDvre_38XRq506y6ii7-zo_XT6"
-target="_blank">
-
-OPEN ↗
-
-</a>
-
-</div>
-
-
-<div class="resource-grid">
-
-<a class="resource"
-href="https://share.google/G90iNCkTZpMHpG3pT"
-target="_blank">
-
-<span class="resource-icon">📝</span>
-
-<span class="resource-info">
-
-<span class="resource-title">
-FET Previous Papers
-</span>
-
-<span class="resource-desc">
-Previous examination papers
-</span>
-
-</span>
-
-<span class="external">↗</span>
-
-</a>
-
-</div>
-
-
-<div class="feature"
-style="margin-top:14px;background:var(--yellow);">
-
-<div>
-
-<h3>💡 Freshers Tip</h3>
-
-<p>
-Start collecting notes and PYQs from semester one.
-It becomes extremely useful before examinations.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
+<!-- =======================================================
      SYLLABUS
-     ===================================================== -->
+     ======================================================= -->
 
-<div class="category reveal">
+<section class="section" id="syllabus">
 
-<button class="category-header">
+<div class="section-box">
 
-    <span class="category-icon">📝</span>
+<button class="section-head" onclick="toggleSection(this)">
 
-    <span class="category-text">
+<div class="section-icon">📚</div>
 
-        <h3>Syllabus</h3>
+<div class="section-info">
+<h2>Syllabus & Academic Roadmap</h2>
+<p>Find FET and university-wide syllabus</p>
+</div>
 
-        <p>FET and university-wide syllabus</p>
-
-    </span>
-
-    <span class="chevron">⌄</span>
+<div class="chevron">⌄</div>
 
 </button>
 
-<div class="category-body">
+<div class="section-content">
+<div class="section-inner">
+<div class="section-padding">
 
-<div class="category-inner">
+<div class="featured">
 
-<div class="category-content">
+<div class="featured-title">
+<span>IMPORTANT</span>
+<h3>🎓 FET GKV Syllabus</h3>
+</div>
 
-<div class="resource-grid">
+<p>
+Quick access to the FET syllabus for students.
+</p>
 
-
-<a class="resource"
+<a class="card-link"
 href="https://share.google/DoOGoUy0wmEEFN7Lk"
 target="_blank">
-
-<span class="resource-icon">🎯</span>
-
-<span class="resource-info">
-
-<span class="resource-title">
-FET GKV Syllabus
-</span>
-
-<span class="resource-desc">
-FET syllabus document
-</span>
-
-</span>
-
-<span class="external">↗</span>
-
+Open FET Syllabus ↗
 </a>
 
+</div>
 
-<a class="resource"
+
+<div class="cards">
+
+<div class="card">
+
+<h3>📖 All Courses Syllabus</h3>
+
+<p>
+Old syllabus archive for different university courses.
+</p>
+
+<a class="card-link gold"
 href="https://www.gkv.ac.in/academics/syllabus-old/"
 target="_blank">
+View Syllabus Archive ↗
+</a>
 
-<span class="resource-icon">📖</span>
+</div>
 
-<span class="resource-info">
+<div class="card">
 
-<span class="resource-title">
-All Courses Syllabus
-</span>
+<h3>📝 Previous Papers</h3>
 
-<span class="resource-desc">
-Old GKV(DU) syllabus
-</span>
+<p>
+Access the academic paper collection.
+</p>
 
-</span>
+<a class="card-link green"
+href="https://drive.google.com/drive/mobile/folders/1nVBWVYDDvre_38XRq506y6ii7-zo_XT6"
+target="_blank">
+Open Papers ↗
+</a>
 
-<span class="external">↗</span>
+</div>
 
+<div class="card">
+
+<h3>📑 FET Previous Papers</h3>
+
+<p>
+Previous FET examination papers.
+</p>
+
+<a class="card-link blue"
+href="https://share.google/G90iNCkTZpMHpG3pT"
+target="_blank">
+Open Papers ↗
+</a>
+
+</div>
+
+</div>
+
+<div class="notice">
+<strong>💡 Fresher Tip:</strong>
+Save your syllabus before the semester begins.
+It makes planning notes, assignments and exam preparation much easier.
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+
+<!-- =======================================================
+     CAMPUS COMMUNITY
+     ======================================================= -->
+
+<section class="section" id="community">
+
+<div class="section-box">
+
+<button class="section-head" onclick="toggleSection(this)">
+
+<div class="section-icon">📱</div>
+
+<div class="section-info">
+<h2>Campus Community</h2>
+<p>Discussion groups and social pages</p>
+</div>
+
+<div class="chevron">⌄</div>
+
+</button>
+
+<div class="section-content">
+<div class="section-inner">
+<div class="section-padding">
+
+<div class="cards">
+
+<div class="card">
+
+<h3>👨 Boys Discussion</h3>
+
+<p>Join the student discussion group.</p>
+
+<a class="card-link"
+href="https://ig.me/j/AbYV1fHlJ03KWBBm/"
+target="_blank">
+Join Group ↗
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>👩 Girls Discussion</h3>
+
+<p>Join the student discussion group.</p>
+
+<a class="card-link blue"
+href="https://ig.me/j/AbYq82f0ZOMoNNI3/"
+target="_blank">
+Join Group ↗
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>📸 Official GKV</h3>
+
+<p>Official Instagram page.</p>
+
+<a class="card-link red"
+href="https://www.instagram.com/gkv_hdr/"
+target="_blank">
+Instagram ↗
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>😂 GKV Memes</h3>
+
+<p>Student community and memes.</p>
+
+<a class="card-link gold"
+href="https://www.instagram.com/gkviians/"
+target="_blank">
+Open Page ↗
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>📷 Lekhram Diaries</h3>
+
+<p>Hostel-related community page.</p>
+
+<a class="card-link green"
+href="https://www.instagram.com/lekhram_diaries/"
+target="_blank">
+Open Page ↗
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>📱 Student Community</h3>
+
+<p>Additional student social page.</p>
+
+<a class="card-link"
+href="https://www.instagram.com/na_samaz_bandar/"
+target="_blank">
+Open Page ↗
 </a>
 
 </div>
@@ -2124,487 +1263,305 @@ Old GKV(DU) syllabus
 </div>
 
 </div>
-
+</div>
 </div>
 
 </div>
+</section>
 
 
-<!-- =====================================================
-     CAMPUS HOSTEL
-     ===================================================== -->
+<!-- =======================================================
+     CAMPUS & HOSTEL
+     ======================================================= -->
 
-<div class="category reveal">
+<section class="section" id="campus">
 
-<button class="category-header">
+<div class="section-box">
 
-    <span class="category-icon">🏢</span>
+<button class="section-head" onclick="toggleSection(this)">
 
-    <span class="category-text">
+<div class="section-icon">🏠</div>
 
-        <h3>Campus & Hostel</h3>
+<div class="section-info">
+<h2>Campus & Hostel</h2>
+<p>Campus information and practical tips</p>
+</div>
 
-        <p>Maps, images and practical tips</p>
-
-    </span>
-
-    <span class="chevron">⌄</span>
+<div class="chevron">⌄</div>
 
 </button>
 
-<div class="category-body">
+<div class="section-content">
+<div class="section-inner">
+<div class="section-padding">
 
-<div class="category-inner">
+<div class="cards">
 
-<div class="category-content">
+<div class="card">
+<h3>🏠 Hostel Images</h3>
+<p>Explore hostel photos and location.</p>
 
-<div class="resource-grid">
-
-
-<a class="resource"
+<a class="card-link"
 href="https://maps.app.goo.gl/mDGiPte6tJTpeBtB7"
 target="_blank">
-
-<span class="resource-icon">🏠</span>
-
-<span class="resource-info">
-
-<span class="resource-title">
-Hostel Images
-</span>
-
-<span class="resource-desc">
-View hostel location/images
-</span>
-
-</span>
-
-<span class="external">↗</span>
-
+View Hostel ↗
 </a>
+</div>
 
+<div class="card">
+<h3>🏛️ Campus Images</h3>
+<p>Explore the university campus.</p>
 
-<a class="resource"
+<a class="card-link gold"
 href="https://maps.app.goo.gl/F7QrGuoJQ2ATgpur8"
 target="_blank">
-
-<span class="resource-icon">🏛️</span>
-
-<span class="resource-info">
-
-<span class="resource-title">
-Campus Images
-</span>
-
-<span class="resource-desc">
-Explore campus
-</span>
-
-</span>
-
-<span class="external">↗</span>
-
+View Campus ↗
 </a>
-
-</div>
-
-
-<div class="feature"
-style="margin-top:14px;background:var(--pink);">
-
-<div>
-
-<h3>💡 Survival Tip</h3>
-
-<p>
-Keep basic essentials and snacks with you.
-Campus facilities can sometimes be unpredictable.
-</p>
-
 </div>
 
 </div>
 
-</div>
+<div class="notice">
+
+<strong>🧳 Survival Tip:</strong>
+Keep basic essentials, chargers, stationery and some
+non-perishable snacks with you when you arrive.
 
 </div>
 
 </div>
-
+</div>
 </div>
 
+</div>
+</section>
 
-<!-- =====================================================
-     MUST VISIT
-     ===================================================== -->
 
-<div class="category reveal">
+<!-- =======================================================
+     MUST VISIT PLACES
+     ======================================================= -->
 
-<button class="category-header">
+<section class="section" id="places">
 
-    <span class="category-icon">📍</span>
+<div class="section-box">
 
-    <span class="category-text">
+<button class="section-head" onclick="toggleSection(this)">
 
-        <h3>Must Visit Places</h3>
+<div class="section-icon">🗺️</div>
 
-        <p>Explore places around GKDU</p>
+<div class="section-info">
+<h2>Must Visit Places</h2>
+<p>Explore Haridwar and nearby attractions</p>
+</div>
 
-    </span>
-
-    <span class="chevron">⌄</span>
+<div class="chevron">⌄</div>
 
 </button>
 
-<div class="category-body">
+<div class="section-content">
+<div class="section-inner">
+<div class="section-padding">
 
-<div class="category-inner">
+<div class="featured">
 
-<div class="category-content">
-
-<div class="feature"
-style="background:var(--green);">
-
-<div>
-
-<h3>🗺️ GKDU Must Visit Places</h3>
-
-<p>
-A dedicated guide to interesting places
-you should explore around the university.
-</p>
-
+<div class="featured-title">
+<span>EXPLORE</span>
+<h3>🗺️ Haridwar Student Guide</h3>
 </div>
 
-<a class="feature-btn"
+<p>
+A dedicated guide containing places that GKDU students
+should explore during their stay.
+</p>
+
+<a class="card-link"
 href="https://gkvcommunity.github.io/Mustvisit-places/"
 target="_blank">
-
-EXPLORE ↗
-
+Explore Must-Visit Places ↗
 </a>
 
 </div>
 
-</div>
+<div class="notice">
+
+<strong>🙏 Respect the place:</strong>
+When visiting temples, ghats and other religious or
+heritage locations, follow local rules and maintain cleanliness.
 
 </div>
 
 </div>
-
+</div>
 </div>
 
+</div>
+</section>
 
-<!-- =====================================================
+
+<!-- =======================================================
      FAQ
-     ===================================================== -->
+     ======================================================= -->
 
-<div class="category reveal">
+<section class="section" id="faq">
 
-<button class="category-header">
+<div class="section-box">
 
-    <span class="category-icon">💬</span>
+<button class="section-head" onclick="toggleSection(this)">
 
-    <span class="category-text">
+<div class="section-icon">❓</div>
 
-        <h3>Fresher FAQs</h3>
+<div class="section-info">
+<h2>Fresher FAQs</h2>
+<p>Quick answers to common questions</p>
+</div>
 
-        <p>Quick answers to common questions</p>
-
-    </span>
-
-    <span class="chevron">⌄</span>
+<div class="chevron">⌄</div>
 
 </button>
 
-<div class="category-body">
-
-<div class="category-inner">
-
-<div class="category-content">
+<div class="section-content">
+<div class="section-inner">
+<div class="section-padding">
 
 <input
-class="faq-search"
 id="faqSearch"
-placeholder="🔎 Search FAQs...">
+class="search"
+type="search"
+placeholder="🔎 Search your question..."
+oninput="filterFAQs()"
+>
 
 <div id="faqList">
 
-
-<div class="faq">
-
-<button>
-
-<span>
-Are laptops mandatory for first year?
-</span>
-
-<span class="faq-plus">+</span>
-
-</button>
-
+<details class="faq">
+<summary>Are laptops mandatory for first year?</summary>
 <div class="faq-answer">
-
-<div>
-
-A laptop may not be necessary from day one,
-but it can become useful for coding, assignments,
-projects and other academic work.
-
+Not necessarily from day one, but a laptop can be useful
+for programming assignments, projects and academic work.
 </div>
+</details>
 
-</div>
-
-</div>
-
-
-<div class="faq">
-
-<button>
-
-<span>
-Is hostel accommodation guaranteed?
-</span>
-
-<span class="faq-plus">+</span>
-
-</button>
-
+<details class="faq">
+<summary>Is hostel accommodation guaranteed?</summary>
 <div class="faq-answer">
-
-<div>
-
-Hostel availability can be limited.
-Students should check the latest university
-hostel-allotment information and apply early.
-
+Hostel availability depends on the university's allocation
+and available capacity. Check the latest official instructions
+before relying on hostel accommodation.
 </div>
+</details>
 
-</div>
-
-</div>
-
-
-<div class="faq">
-
-<button>
-
-<span>
-How are the labs and classrooms?
-</span>
-
-<span class="faq-plus">+</span>
-
-</button>
-
+<details class="faq">
+<summary>How are the hostel facilities?</summary>
 <div class="faq-answer">
-
-<div>
-
-Facilities vary by department. Check with current
-students and faculty for the latest situation in
-your particular branch.
-
+Facilities are basic, so students should be prepared to
+manage their everyday essentials independently.
 </div>
+</details>
 
-</div>
-
-</div>
-
-
-<div class="faq">
-
-<button>
-
-<span>
-Is there a dress code?
-</span>
-
-<span class="faq-plus">+</span>
-
-</button>
-
+<details class="faq">
+<summary>How are the classrooms and labs?</summary>
 <div class="faq-answer">
-
-<div>
-
-The university has a relatively traditional
-campus environment. Follow the latest official
-student instructions regarding dress and events.
-
+The engineering facilities provide the basic infrastructure
+needed for academic classes, practicals and workshops.
 </div>
+</details>
 
-</div>
-
-</div>
-
-
-<div class="faq">
-
-<button>
-
-<span>
-Where can I find previous papers?
-</span>
-
-<span class="faq-plus">+</span>
-
-</button>
-
+<details class="faq">
+<summary>How are the professors?</summary>
 <div class="faq-answer">
-
-<div>
-
-Use the Academic Resources section above for
-the available previous-paper collections.
-
+Faculty experience can vary by department and subject.
+Students should make use of lectures, office hours and
+academic resources available through their department.
 </div>
+</details>
 
-</div>
-
-</div>
-
-
-<div class="faq">
-
-<button>
-
-<span>
-Where can I find the syllabus?
-</span>
-
-<span class="faq-plus">+</span>
-
-</button>
-
+<details class="faq">
+<summary>Is there a dress code?</summary>
 <div class="faq-answer">
+Gurukul Kangri has a traditional academic environment.
+Students should follow the latest university guidelines
+regarding dress and conduct.
+</div>
+</details>
 
-<div>
-
-Open the Syllabus section above. It contains links
-for the FET syllabus and the university's older
-course syllabus collection.
+<details class="faq">
+<summary>Where can I find the syllabus?</summary>
+<div class="faq-answer">
+Use the Syllabus section above for FET syllabus and the
+university's syllabus archive.
+</div>
+</details>
 
 </div>
 
 </div>
-
 </div>
-
-
 </div>
 
 </div>
-
-</div>
-
-</div>
-
-</div>
-
-
-    </div>
-
 </section>
 
 
-<!-- =====================================================
-     RECENTLY OPENED
-     ===================================================== -->
-
-<section class="recent reveal" id="recentBox">
-
-<h3>🕘 Recently opened</h3>
-
-<div class="recent-list" id="recentList">
-
-<span style="color:var(--muted);font-size:.8rem;">
-Your recently opened resources will appear here.
-</span>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
+<!-- =======================================================
      REVIEW
-     ===================================================== -->
+     ======================================================= -->
 
-<section class="review reveal">
+<section class="review">
 
 <h2>⭐ Help Future Freshers</h2>
 
 <p>
-Have something useful to add?
-Share your experience with the next batch.
+Had an experience at GKDU?
+Share useful information with the next batch.
 </p>
 
 <a
-class="review-btn"
 href="https://forms.gle/s2w2vbcMQtyx6h8x5"
 target="_blank">
-
-✍️ Drop a Review
-
+✍️ Submit Your Review
 </a>
 
 </section>
 
 
-</main>
-
-
-<!-- =====================================================
-     FOOTER
-     ===================================================== -->
-
 <footer>
 
+<div class="om-small">ॐ</div>
+
 <p>
-<strong>GKDU Fresher's Guide</strong>
+GKDU Fresher's Guide
+<br>
+Unofficial student resource
 </p>
 
-<p style="margin-top:7px;">
-Unofficial • Student Community Project
-</p>
-
-<p style="margin-top:12px;">
-Made with ❤️ for future GKDU students
+<p>
+Made with ❤️ for the GKDU student community
 </p>
 
 </footer>
 
+</main>
 
-<!-- FLOATING CONTROLS -->
 
-<div class="floating">
+<!-- =======================================================
+     FLOATING CONTROLS
+     ======================================================= -->
 
 <button
-class="float-btn"
+class="top-btn"
 id="topBtn"
-onclick="goTop()"
-title="Back to top">
-
+onclick="scrollToTop()"
+aria-label="Back to top">
 ↑
-
 </button>
 
 <button
-class="float-btn"
-onclick="shareSite()"
-title="Share">
-
-↗
-
+class="float-share"
+onclick="shareGuide()">
+📢 Share Guide
 </button>
 
-</div>
-
-
-<div class="toast" id="toast">
-Copied!
-</div>
+<div class="toast" id="toast"></div>
 
 
 <script>
@@ -2613,252 +1570,135 @@ Copied!
    THEME
    ========================================================= */
 
-const root = document.documentElement;
+const html=document.documentElement;
+const themeBtn=document.getElementById("themeBtn");
 
-const themeBtn = document.getElementById("themeBtn");
+function setTheme(theme){
 
-function updateThemeIcon(){
-
-    if(root.dataset.theme === "dark"){
-        themeBtn.textContent = "☀️";
+    if(theme==="dark"){
+        html.setAttribute("data-theme","dark");
+        localStorage.setItem("gkdu-theme","dark");
+        themeBtn.textContent="☀️";
     }else{
-        themeBtn.textContent = "🌙";
+        html.removeAttribute("data-theme");
+        localStorage.setItem("gkdu-theme","light");
+        themeBtn.textContent="🌙";
     }
 
 }
 
 function toggleTheme(){
 
-    if(root.dataset.theme === "dark"){
+    const current=
+        html.getAttribute("data-theme")==="dark"
+        ? "dark"
+        : "light";
 
-        root.removeAttribute("data-theme");
-
-        localStorage.setItem("gkdu-theme","light");
-
-    }else{
-
-        root.dataset.theme = "dark";
-
-        localStorage.setItem("gkdu-theme","dark");
-
-    }
-
-    updateThemeIcon();
+    setTheme(current==="dark" ? "light" : "dark");
 
 }
 
-if(localStorage.getItem("gkdu-theme") === "dark"){
+const savedTheme=localStorage.getItem("gkdu-theme");
 
-    root.dataset.theme = "dark";
-
-}
-
-updateThemeIcon();
-
-
-/* =========================================================
-   ACCORDION
-   ========================================================= */
-
-const categories =
-document.querySelectorAll(".category");
-
-categories.forEach(category => {
-
-    const header =
-    category.querySelector(".category-header");
-
-    header.addEventListener("click",() => {
-
-        const wasOpen =
-        category.classList.contains("open");
-
-        /*
-         * Close all other sections.
-         * This keeps the interface simple.
-         */
-
-        categories.forEach(other => {
-
-            if(other !== category){
-
-                other.classList.remove("open");
-
-            }
-
-        });
-
-        category.classList.toggle("open",!wasOpen);
-
-        if(!wasOpen){
-
-            setTimeout(() => {
-
-                category.scrollIntoView({
-                    behavior:"smooth",
-                    block:"nearest"
-                });
-
-            },80);
-
-        }
-
-    });
-
-});
-
-
-/* =========================================================
-   GLOBAL SEARCH
-   ========================================================= */
-
-const search =
-document.getElementById("globalSearch");
-
-search.addEventListener("input",function(){
-
-    const query =
-    this.value.trim().toLowerCase();
-
-    if(!query){
-
-        categories.forEach(c => {
-
-            c.style.display="";
-
-        });
-
-        return;
-
-    }
-
-    categories.forEach(category => {
-
-        const text =
-        category.innerText.toLowerCase();
-
-        if(text.includes(query)){
-
-            category.style.display="";
-
-            category.classList.add("open");
-
-        }else{
-
-            category.style.display="none";
-
-        }
-
-    });
-
-});
-
-
-function focusSearch(){
-
-    search.focus();
-
-    search.scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-    });
-
+if(savedTheme){
+    setTheme(savedTheme);
 }
 
 
 /* =========================================================
-   FAQ ACCORDION
+   SECTION ACCORDION
    ========================================================= */
 
-document.querySelectorAll(".faq button")
-.forEach(button => {
+function toggleSection(button){
 
-    button.addEventListener("click",() => {
+    const box=button.parentElement;
 
-        const faq =
-        button.parentElement;
+    box.classList.toggle("open");
 
-        const isOpen =
-        faq.classList.contains("open");
+}
 
-        document.querySelectorAll(".faq")
-        .forEach(item => {
+function openSection(id){
 
-            item.classList.remove("open");
+    const section=document.getElementById(id);
 
+    if(!section) return;
+
+    const box=section.querySelector(".section-box");
+
+    box.classList.add("open");
+
+    setTimeout(()=>{
+
+        section.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
         });
 
-        if(!isOpen){
+    },100);
 
-            faq.classList.add("open");
-
-        }
-
-    });
-
-});
+}
 
 
 /* =========================================================
    FAQ SEARCH
    ========================================================= */
 
-const faqSearch =
-document.getElementById("faqSearch");
+function filterFAQs(){
 
-faqSearch.addEventListener("input",function(){
+    const query=
+        document
+        .getElementById("faqSearch")
+        .value
+        .toLowerCase()
+        .trim();
 
-    const query =
-    this.value.toLowerCase();
+    document
+    .querySelectorAll("#faqList .faq")
+    .forEach(faq=>{
 
-    document.querySelectorAll(".faq")
-    .forEach(faq => {
+        const text=faq.innerText.toLowerCase();
 
-        const text =
-        faq.innerText.toLowerCase();
-
-        faq.style.display =
-        text.includes(query) ? "" : "none";
+        faq.style.display=
+            text.includes(query)
+            ? ""
+            : "none";
 
     });
 
-});
+}
 
 
 /* =========================================================
    SHARE
    ========================================================= */
 
-function shareSite(){
+async function shareGuide(){
 
-    const data = {
-
-        title:"GKDU Fresher's Guide 🚀",
-
-        text:
-        "Check out the unofficial Gurukul Kangri Fresher's Guide!",
-
+    const data={
+        title:"GKDU Fresher's Guide 🪔",
+        text:"Check out the GKDU Fresher's Guide — syllabus, portals, academic resources, hostel information and must-visit places.",
         url:window.location.href
-
     };
 
-    if(navigator.share){
+    try{
 
-        navigator.share(data).catch(()=>{});
+        if(navigator.share){
 
-    }else{
+            await navigator.share(data);
 
-        navigator.clipboard.writeText(
-            window.location.href
-        ).then(()=>{
+        }else{
+
+            await navigator.clipboard.writeText(
+                window.location.href
+            );
 
             showToast("🔗 Link copied!");
 
-        }).catch(()=>{
+        }
 
-            showToast("Copy the page URL from your browser.");
+    }catch(error){
 
-        });
+        console.log(error);
 
     }
 
@@ -2873,17 +1713,15 @@ let toastTimer;
 
 function showToast(message){
 
-    const toast =
-    document.getElementById("toast");
+    const toast=document.getElementById("toast");
 
-    toast.textContent = message;
+    toast.textContent=message;
 
     toast.classList.add("show");
 
     clearTimeout(toastTimer);
 
-    toastTimer =
-    setTimeout(() => {
+    toastTimer=setTimeout(()=>{
 
         toast.classList.remove("show");
 
@@ -2893,197 +1731,54 @@ function showToast(message){
 
 
 /* =========================================================
-   RECENTLY OPENED
+   SCROLL PROGRESS
    ========================================================= */
 
-const recentList =
-document.getElementById("recentList");
+function updateProgress(){
 
-const recentBox =
-document.getElementById("recentBox");
+    const scrollTop=
+        window.scrollY;
 
-function getRecent(){
+    const height=
+        document.documentElement.scrollHeight
+        -window.innerHeight;
 
-    try{
+    const percent=
+        height>0
+        ? (scrollTop/height)*100
+        : 0;
 
-        return JSON.parse(
-            localStorage.getItem("gkdu-recent") || "[]"
-        );
-
-    }catch{
-
-        return [];
-
-    }
-
-}
-
-function saveRecent(title,url){
-
-    let recent =
-    getRecent();
-
-    recent =
-    recent.filter(item =>
-        item.url !== url
-    );
-
-    recent.unshift({
-        title:title,
-        url:url
-    });
-
-    recent =
-    recent.slice(0,5);
-
-    localStorage.setItem(
-        "gkdu-recent",
-        JSON.stringify(recent)
-    );
-
-    renderRecent();
-
-}
-
-function renderRecent(){
-
-    const recent =
-    getRecent();
-
-    if(!recent.length){
-
-        recentList.innerHTML =
-        `<span style="color:var(--muted);font-size:.8rem;">
-        Your recently opened resources will appear here.
-        </span>`;
-
-        return;
-
-    }
-
-    recentList.innerHTML =
-    recent.map(item => `
-
-        <a
-        class="recent-item"
-        href="${item.url}"
-        target="_blank">
-
-        ${item.title} ↗
-
-        </a>
-
-    `).join("");
-
-}
-
-document.querySelectorAll(
-    ".resource,.feature-btn"
-).forEach(link => {
-
-    link.addEventListener("click",() => {
-
-        const title =
-        link.querySelector(".resource-title")
-        ?.textContent
-        ||
-        link.textContent.trim()
-        .replace("↗","")
-        .trim();
-
-        saveRecent(
-            title,
-            link.href
-        );
-
-    });
-
-});
-
-renderRecent();
+    document.getElementById("progress")
+        .style.width=percent+"%";
 
 
-/* =========================================================
-   SCROLL REVEAL
-   ========================================================= */
+    const topBtn=
+        document.getElementById("topBtn");
 
-const observer =
-new IntersectionObserver(
+    if(scrollTop>500){
 
-    entries => {
-
-        entries.forEach(entry => {
-
-            if(entry.isIntersecting){
-
-                entry.target.classList.add("show");
-
-                observer.unobserve(
-                    entry.target
-                );
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold:.08
-    }
-
-);
-
-document.querySelectorAll(".reveal")
-.forEach(element => {
-
-    observer.observe(element);
-
-});
-
-
-/* =========================================================
-   SCROLL PROGRESS + TOP BUTTON
-   ========================================================= */
-
-const progress =
-document.getElementById("progress");
-
-const topBtn =
-document.getElementById("topBtn");
-
-window.addEventListener("scroll",() => {
-
-    const scrollTop =
-    window.scrollY;
-
-    const height =
-    document.documentElement.scrollHeight
-    -
-    document.documentElement.clientHeight;
-
-    const percent =
-    height > 0
-    ? (scrollTop / height) * 100
-    : 0;
-
-    progress.style.width =
-    percent + "%";
-
-    if(scrollTop > 500){
-
-        topBtn.classList.add("visible");
+        topBtn.classList.add("show");
 
     }else{
 
-        topBtn.classList.remove("visible");
+        topBtn.classList.remove("show");
 
     }
 
-});
+}
+
+window.addEventListener(
+    "scroll",
+    updateProgress,
+    {passive:true}
+);
 
 
-function goTop(){
+/* =========================================================
+   BACK TO TOP
+   ========================================================= */
+
+function scrollToTop(){
 
     window.scrollTo({
         top:0,
@@ -3094,46 +1789,105 @@ function goTop(){
 
 
 /* =========================================================
-   KEYBOARD SHORTCUT
-   Press "/" to search
+   SCROLL REVEAL
    ========================================================= */
 
-document.addEventListener("keydown",event => {
+const observer=
+new IntersectionObserver(
+    entries=>{
 
-    if(
-        event.key === "/" &&
-        document.activeElement.tagName !== "INPUT"
-    ){
+        entries.forEach(entry=>{
 
-        event.preventDefault();
+            if(entry.isIntersecting){
 
-        focusSearch();
+                entry.target.classList.add("visible");
 
+                observer.unobserve(
+                    entry.target
+                );
+
+            }
+
+        });
+
+    },
+    {
+        threshold:.12,
+        rootMargin:"0px 0px -50px 0px"
     }
+);
 
+
+document
+.querySelectorAll(".section")
+.forEach(section=>{
+    observer.observe(section);
 });
 
 
 /* =========================================================
-   OPEN FIRST SECTION ON DESKTOP
+   KEYBOARD SHORTCUTS
    ========================================================= */
 
-if(window.innerWidth > 700){
+document.addEventListener(
+    "keydown",
+    event=>{
 
-    const first =
-    document.querySelector(".category");
+        /* / = FAQ search */
 
-    if(first){
+        if(
+            event.key==="/" &&
+            document.activeElement.tagName!=="INPUT"
+        ){
 
-        setTimeout(() => {
+            event.preventDefault();
 
-            first.classList.add("open");
+            openSection("faq");
 
-        },500);
+            setTimeout(()=>{
+
+                document
+                .getElementById("faqSearch")
+                .focus();
+
+            },400);
+
+        }
+
+        /* Escape = close opened sections */
+
+        if(event.key==="Escape"){
+
+            document
+            .querySelectorAll(".section-box.open")
+            .forEach(box=>{
+                box.classList.remove("open");
+            });
+
+        }
 
     }
+);
 
-}
+
+/* =========================================================
+   FIRST LOAD
+   ========================================================= */
+
+window.addEventListener(
+    "load",
+    ()=>{
+
+        setTimeout(()=>{
+
+            document
+            .querySelector(".section")
+            ?.classList.add("visible");
+
+        },300);
+
+    }
+);
 
 </script>
 
