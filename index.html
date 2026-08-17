@@ -3,175 +3,75 @@
 <head>
     <meta name="google-site-verification" content="Ck-24AGvEDrzbbaaQAFbJKvtXCeFJHs_MHyeK7zBKbQ" />
     <meta charset="UTF-8">
+    <!-- Ensures proper scaling on all mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gurukul Kangri (GKDU) Fresher's Guide</title>
-    <meta name="description" content="The ultimate unofficial survival and resource guide for Gurukul Kangri (GKDU) freshers.">
-    <meta name="keywords" content="Gurukul Kangri, GKDU, Haridwar, GKV freshers guide, GKDU admission">
-
+    <meta name="description" content="The ultimate unofficial survival and resource guide for Gurukul Kangri (GKDU) freshers. Find WhatsApp groups, hostel tips, syllabus, and places to visit.">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap');
+        /* Modern, edgy tech font */
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap');
 
+        /* CSS Variables for Seamless Dark/Light Theming */
         :root {
             --bg-color: #f4f4f0;
-            --bg-dots: rgba(0, 0, 0, 0.08);
+            --bg-dots: #000000;
             --container-bg: #ffffff;
             --text-main: #000000;
             --text-muted: #333333;
             --border-color: #000000;
             --card-bg: #ffffff;
+            --tab-bg: #ffffff;
             
+            /* Vibrant Neobrutalism Palette */
             --color-yellow: #FFDE00;
             --color-green: #00E676;
             --color-pink: #FF90E8;
             --color-blue: #90E0EF;
             --color-purple: #CDB4DB;
-            --color-orange: #FF6B6B;
+            --color-orange: #FF9F1C;
             --btn-text: #000000;
         }
 
+        /* Dark Theme Variables */
         [data-theme="dark"] {
             --bg-color: #121212;
-            --bg-dots: rgba(255, 255, 255, 0.08);
+            --bg-dots: #444444;
             --container-bg: #1a1a1a;
             --text-main: #ffffff;
             --text-muted: #dddddd;
             --border-color: #ffffff;
             --card-bg: #222222;
+            --tab-bg: #2a2a2a;
         }
-
-        /* --- KEYFRAMES --- */
-        @keyframes panBackground {
-            0% { background-position: 0 0; }
-            100% { background-position: 40px 40px; }
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes jelly {
-            0% { transform: scale(1, 1); }
-            25% { transform: scale(0.9, 1.1); }
-            50% { transform: scale(1.1, 0.9); }
-            75% { transform: scale(0.95, 1.05); }
-            100% { transform: scale(1, 1); }
-        }
-
-        /* --- SCROLL REVEAL KEYFRAMES --- */
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes popIn {
-            from { opacity: 0; transform: scale(0.8) translateY(30px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        /* --- RIPPLE ANIMATION --- */
-        @keyframes ripple-anim {
-            to { transform: scale(4); opacity: 0; }
-        }
-
-        html { scroll-behavior: smooth; cursor: none; }
 
         body {
             font-family: 'Space Grotesk', sans-serif;
             background-color: var(--bg-color);
-            background-image: radial-gradient(var(--bg-dots) 2px, transparent 2px);
-            background-size: 30px 30px;
+            background-image: radial-gradient(var(--bg-dots) 1px, transparent 1px);
+            background-size: 20px 20px;
             color: var(--text-main);
             margin: 0;
-            padding: 50px 20px;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
             line-height: 1.6;
             transition: background-color 0.4s ease, color 0.4s ease;
             overflow-x: hidden;
-            animation: panBackground 10s linear infinite;
-        }
-
-        /* Custom Interactive Cursor */
-        .cursor-dot, .cursor-outline {
-            position: fixed;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none;
-        }
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--color-orange);
-        }
-        .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 2px solid var(--border-color);
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
-        
-        @media (hover: none) and (pointer: coarse) {
-            .cursor-dot, .cursor-outline { display: none; }
-            html { cursor: auto; }
-        }
-
-        /* Animated Marquee Strip */
-        .ticker-tape {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: var(--color-orange);
-            color: #000;
-            font-weight: 900;
-            font-size: 1.1em;
-            padding: 8px 0;
-            border-bottom: 3px solid var(--border-color);
-            z-index: 1000;
-            overflow: hidden;
-            white-space: nowrap;
-        }
-        .ticker-tape p {
-            display: inline-block;
-            margin: 0;
-            padding-left: 100%;
-            animation: marquee 20s linear infinite;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 850px;
             width: 100%;
             background: var(--container-bg);
             padding: 40px;
             border-radius: 12px;
-            border: 3px solid var(--border-color);
+            border: 4px solid var(--border-color);
+            box-shadow: 12px 12px 0px var(--border-color);
             position: relative;
-            margin-top: 30px;
-            box-shadow: 10px 10px 0px var(--border-color);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.4s ease;
+            box-sizing: border-box;
         }
-
-        /* --- Scroll Reveal Classes --- */
-        .reveal-left { opacity: 0; }
-        .reveal-left.active { animation: slideInLeft 0.6s ease forwards; }
-        
-        .reveal-right { opacity: 0; }
-        .reveal-right.active { animation: slideInRight 0.6s ease forwards; }
-        
-        .reveal-pop { opacity: 0; }
-        .reveal-pop.active { animation: popIn 0.6s ease forwards; }
 
         /* --- Theme Toggle Button --- */
         .theme-toggle {
@@ -183,92 +83,115 @@
             color: var(--text-main);
             padding: 8px 15px;
             border-radius: 50px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 900;
-            cursor: none;
+            font-weight: 700;
+            font-size: 0.95em;
+            cursor: pointer;
             box-shadow: 4px 4px 0px var(--border-color);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background-color 0.3s;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             z-index: 10;
         }
 
         .theme-toggle:hover {
-            transform: translate(-2px, -2px) scale(1.05);
-            box-shadow: 6px 6px 0px var(--border-color);
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--border-color);
             background: var(--color-yellow);
             color: #000;
         }
-        .theme-toggle:active {
-            transform: translate(2px, 2px);
-            box-shadow: 0px 0px 0px var(--border-color);
-        }
-        .theme-icon { display: inline-block; transition: transform 0.5s; }
-        .theme-toggle:hover .theme-icon { animation: spin 1s linear infinite; }
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             border-bottom: 4px solid var(--border-color);
+            padding-bottom: 25px;
             background: var(--color-yellow);
             color: #000;
-            margin: -40px -40px 40px -40px;
-            padding: 60px 20px 40px 20px;
+            margin: -40px -40px 30px -40px;
+            padding: 60px 20px 30px 20px;
             border-radius: 8px 8px 0 0;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         .header h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 4.5em;
+            font-size: 2.8em;
             margin: 0 0 10px 0;
-            letter-spacing: 2px;
-            text-shadow: 4px 4px 0px var(--border-color);
-            color: #ffffff;
-            -webkit-text-stroke: 2px var(--border-color);
-            transition: transform 0.3s;
-            display: inline-block;
-        }
-        .header h1:hover {
-            animation: jelly 0.8s ease;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 0px #fff;
         }
 
         .header p {
             font-size: 1.2em;
-            font-weight: 900;
+            font-weight: 700;
             margin: 0;
-            background: #000;
-            color: #fff;
-            display: inline-block;
-            padding: 8px 20px;
-            border: 2px solid #fff;
-            border-radius: 4px;
-            transition: transform 0.3s ease;
-        }
-        .header p:hover {
-            transform: scale(1.05);
         }
 
-        .section { margin-bottom: 50px; perspective: 1000px; }
+        /* --- Animated Tab System --- */
+        .tabs-wrapper {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            border-bottom: 4px solid var(--border-color);
+            scrollbar-width: none; /* Firefox */
+            -webkit-overflow-scrolling: touch; /* Smooth swipe on iOS */
+            scroll-snap-type: x mandatory; /* Snap effect on mobile */
+        }
+        
+        .tabs-wrapper::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
 
-        .section-title {
-            font-size: 1.6em;
+        .tab-btn {
+            background: var(--tab-bg);
+            color: var(--text-main);
+            border: 3px solid var(--border-color);
+            padding: 12px 20px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 1.05em;
+            cursor: pointer;
+            border-radius: 8px;
+            white-space: nowrap;
+            box-shadow: 4px 4px 0px var(--border-color);
+            transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
             text-transform: uppercase;
-            margin-bottom: 20px;
-            display: inline-block;
+            scroll-snap-align: start;
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 4px 7px 0px var(--border-color);
+        }
+
+        .tab-btn.active {
             background: var(--color-blue);
             color: #000;
-            padding: 8px 20px;
-            border: 3px solid var(--border-color);
-            box-shadow: 5px 5px 0px var(--border-color);
-            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
-            position: relative;
-            z-index: 2;
-        }
-        .section-title:hover {
-            transform: translate(-3px, -3px) rotate(-1deg);
-            box-shadow: 8px 8px 0px var(--border-color);
+            box-shadow: inset 3px 3px 0px rgba(0,0,0,0.1), 0px 0px 0px var(--border-color);
+            transform: translate(2px, 2px);
+            border-color: #000;
         }
 
+        .tab-btn:nth-child(2).active { background: var(--color-pink); }
+        .tab-btn:nth-child(3).active { background: var(--color-green); }
+        .tab-btn:nth-child(4).active { background: var(--color-orange); }
+        .tab-btn:nth-child(5).active { background: var(--color-purple); }
+
+        .tab-content {
+            display: none;
+            animation: fadeInScale 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: translateY(20px) scale(0.98); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* --- Content Layouts --- */
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -281,141 +204,105 @@
             border-radius: 8px;
             border: 3px solid var(--border-color);
             box-shadow: 6px 6px 0px var(--border-color);
+            transition: all 0.3s ease;
             position: relative;
-            transform-style: preserve-3d;
-            will-change: transform;
-            transition: box-shadow 0.3s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            overflow: hidden;
+            box-sizing: border-box;
         }
 
         .card:hover {
-            box-shadow: 12px 12px 0px var(--border-color);
-            z-index: 5;
+            transform: translate(-4px, -4px);
+            box-shadow: 10px 10px 0px var(--border-color);
         }
 
         .card h3 {
             margin: 0 0 20px 0;
-            font-size: 1.4em;
+            font-size: 1.3em;
             text-transform: uppercase;
-            border-bottom: 3px solid var(--border-color);
+            border-bottom: 2px dashed var(--border-color);
             padding-bottom: 10px;
-            display: inline-block;
-            transform: translateZ(30px);
         }
 
+        /* Tactical Button Styling */
         .btn-group {
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            transform: translateZ(20px);
+            flex-direction: column;
+            gap: 15px;
         }
 
         .btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
+            display: inline-block;
             background: var(--color-pink);
             color: var(--btn-text) !important;
             padding: 12px 20px;
             text-decoration: none;
             border-radius: 6px;
-            font-size: 1.1em;
-            font-weight: 900;
+            font-size: 1em;
+            font-weight: 700;
             text-align: center;
             border: 3px solid var(--border-color);
             box-shadow: 4px 4px 0px var(--border-color);
-            flex: 1 1 auto;
+            transition: all 0.15s ease;
             text-transform: uppercase;
             position: relative;
-            overflow: hidden;
-            cursor: none;
-            transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s cubic-bezier(0.25, 1, 0.5, 1), filter 0.2s;
         }
 
         .btn:hover {
-            box-shadow: 6px 6px 0px var(--border-color);
-            filter: brightness(1.1);
-        }
-
-        .btn:active {
-            transform: translate(4px, 4px) !important;
+            transform: translate(4px, 4px);
             box-shadow: 0px 0px 0px var(--border-color);
         }
 
-        .btn .ripple, .action-button .ripple {
-            position: absolute;
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple-anim 0.6s linear;
-            background-color: rgba(255, 255, 255, 0.7);
-            pointer-events: none;
-        }
-
-        .btn-secondary { background: var(--color-green); }
-        .btn-tertiary { background: var(--color-blue); }
-        .btn-quaternary { background: var(--color-yellow); }
-
-        .btn-icon { font-size: 1.2em; pointer-events: none; }
-
-        .link-list { list-style: none; padding: 0; margin: 0; transform: translateZ(20px); }
+        .link-list { list-style: none; padding: 0; margin: 0; }
         .link-list li { margin-bottom: 12px; }
 
         .link-list a {
             text-decoration: none;
             color: var(--text-main);
-            font-weight: 900;
+            font-weight: 700;
             display: flex;
             justify-content: space-between;
-            padding: 12px 15px;
-            border: 3px solid var(--border-color);
-            box-shadow: 3px 3px 0px var(--border-color);
-            background: var(--card-bg);
+            padding: 12px;
+            border: 2px solid transparent;
             border-radius: 6px;
-            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease, background-color 0.3s;
-            cursor: none;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.2s ease;
+            background: var(--container-bg);
         }
         
         .link-list a:hover {
             background: var(--color-yellow);
             color: #000;
+            border: 2px solid var(--border-color);
             transform: translateX(8px);
-            box-shadow: -4px 6px 0px var(--border-color);
+            box-shadow: -4px 4px 0px var(--border-color);
         }
 
         .tip-box {
             background: var(--card-bg);
             border: 3px solid var(--border-color);
+            border-left-width: 8px;
             padding: 20px;
             margin-top: 25px;
-            font-size: 1.05em;
+            font-size: 1em;
             font-weight: 700;
-            border-radius: 8px;
-            box-shadow: 4px 4px 0px var(--border-color);
-            transform: translateZ(10px);
-            transition: transform 0.3s ease;
-        }
-        .tip-box:hover {
-            transform: translateZ(20px) scale(1.02);
+            transition: all 0.3s ease;
+            box-sizing: border-box;
         }
 
         .tip-box strong {
-            background: #000;
-            color: var(--color-yellow);
-            padding: 4px 8px;
-            border-radius: 4px;
+            background: var(--color-yellow);
+            color: #000;
+            padding: 2px 5px;
+            border: 2px solid var(--border-color);
             margin-right: 5px;
-            display: inline-block;
         }
 
-        /* --- FAQ Section --- */
+        /* --- Advanced FAQ Section with Live Search --- */
         .faq-search-box {
             width: 100%;
-            padding: 16px 20px;
-            font-family: 'Space Grotesk', sans-serif;
+            padding: 14px 15px;
+            font-family: inherit;
             font-size: 1.1em;
-            font-weight: 900;
+            font-weight: 700;
             border: 3px solid var(--border-color);
             border-radius: 8px;
             margin-bottom: 25px;
@@ -423,16 +310,13 @@
             color: var(--text-main);
             box-sizing: border-box;
             box-shadow: 4px 4px 0px var(--border-color);
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-            cursor: none;
+            transition: all 0.2s ease;
         }
         
         .faq-search-box:focus {
             outline: none;
-            background: var(--color-green);
+            background: var(--color-yellow);
             color: #000;
-            box-shadow: 8px 8px 0px var(--border-color);
-            transform: translateY(-2px);
         }
 
         .faq-container { display: flex; flex-direction: column; gap: 15px; }
@@ -443,25 +327,21 @@
             border-radius: 8px;
             box-shadow: 4px 4px 0px var(--border-color);
             overflow: hidden;
-            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
-        }
-        details:hover {
-            transform: translateX(5px);
-            box-shadow: 6px 6px 0px var(--border-color);
+            transition: all 0.2s ease;
         }
         
         details[open] {
             background: var(--color-yellow);
             color: #000;
-            transform: scale(1.02);
-            box-shadow: 8px 8px 0px var(--border-color);
+            box-shadow: 6px 6px 0px var(--border-color);
+            transform: translate(-2px, -2px);
         }
         
         summary {
             font-size: 1.1em;
-            font-weight: 900;
-            padding: 18px;
-            cursor: none;
+            font-weight: 700;
+            padding: 15px;
+            cursor: pointer;
             list-style: none;
             display: flex;
             justify-content: space-between;
@@ -469,400 +349,400 @@
         }
         
         summary::-webkit-details-marker { display: none; }
-        summary::after { 
-            content: '👇'; 
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-        }
-        details[open] summary::after { transform: rotate(180deg) scale(1.2); }
+        summary::after { content: '+'; font-size: 1.5em; line-height: 1; transition: transform 0.3s;}
+        details[open] summary::after { transform: rotate(45deg); }
         
         .faq-content {
-            padding: 0 18px 18px 18px;
-            font-weight: 500;
-            font-size: 1.05em;
-            border-top: 2px dashed var(--border-color);
-            margin-top: 10px;
+            padding: 0 15px 15px 15px;
+            font-weight: 600;
+            font-size: 0.95em;
+            border-top: 3px dashed var(--border-color);
+            margin-top: 5px;
             padding-top: 15px;
             background: var(--card-bg); 
             color: var(--text-main);
-            animation: slideDown 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- Review Section --- */
-        .review-section {
-            background: var(--color-purple);
+        /* --- Dedicated Hero Cards --- */
+        .hero-card {
+            background: var(--color-orange);
             color: #000;
             padding: 40px 30px;
+            border-radius: 12px;
             text-align: center;
             border: 4px solid var(--border-color);
-            border-radius: 12px;
             box-shadow: 8px 8px 0px var(--border-color);
-            margin-top: 60px;
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .review-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 12px 12px 0px var(--border-color);
+            margin-bottom: 30px;
+            box-sizing: border-box;
         }
 
-        .review-section h2 { margin-top: 0; font-size: 2.2em; text-transform: uppercase; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px;}
-        .review-section p { font-weight: 700; font-size: 1.2em; margin-bottom: 25px; }
+        .hero-card h2 { margin-top: 0; font-size: 2.2em; text-transform: uppercase; }
+        .hero-card p { font-weight: 700; font-size: 1.1em; margin-bottom: 25px; }
 
         .action-button {
             display: inline-block;
             background: var(--color-yellow);
             color: #000 !important;
             text-decoration: none;
-            padding: 15px 35px;
-            font-weight: 900;
-            font-size: 1.3em;
+            padding: 16px 32px;
+            border-radius: 6px; 
+            font-weight: 700;
+            font-size: 1.2em;
             text-transform: uppercase;
-            border-radius: 8px;
-            border: 3px solid var(--border-color);
+            text-align: center;
+            border: 4px solid var(--border-color);
             box-shadow: 6px 6px 0px var(--border-color);
-            transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s, background-color 0.3s; 
-            cursor: none;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.15s ease; 
         }
 
         .action-button:hover {
-            box-shadow: 9px 9px 0px var(--border-color);
-            background: var(--color-green);
-        }
-        .action-button:active {
-            transform: translate(4px, 4px) !important;
+            transform: translate(6px, 6px);
             box-shadow: 0px 0px 0px var(--border-color);
+            background: var(--color-green);
         }
 
         .footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 40px;
             font-weight: 700;
             font-size: 1.1em;
-            border-top: 4px dashed var(--border-color);
+            border-top: 3px dashed var(--border-color);
             padding-top: 25px;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
         }
-        .footer:hover { opacity: 1; }
 
+        .footer span {
+            display: inline-block;
+            color: #FF2A2A; 
+            animation: heartbeat 1.2s infinite;
+            font-size: 1.2em;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.3); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.3); }
+        }
+
+        /* --- Floating Share Button --- */
         .floating-share {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 30px;
+            right: 30px;
             background: var(--color-blue);
             color: #000;
-            border: 3px solid var(--border-color);
-            box-shadow: 5px 5px 0px var(--border-color);
+            border: 4px solid var(--border-color);
+            box-shadow: 6px 6px 0px var(--border-color);
             border-radius: 50px;
-            padding: 12px 25px;
+            padding: 15px 25px;
             font-size: 1.1em;
-            font-weight: 900;
-            font-family: 'Space Grotesk', sans-serif;
-            cursor: none;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
             z-index: 1000;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background-color 0.3s;
+            transition: all 0.1s ease;
             text-transform: uppercase;
-            overflow: hidden;
         }
         
         .floating-share:hover {
-            transform: translate(-3px, -3px) scale(1.05);
-            box-shadow: 8px 8px 0px var(--border-color);
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px var(--border-color);
             background: var(--color-pink);
         }
-        .floating-share:active {
-            transform: translate(2px, 2px) scale(0.95);
-            box-shadow: 0px 0px 0px var(--border-color);
-        }
 
-        @media (max-width: 600px) {
-            body { padding: 40px 10px 20px 10px; }
-            .ticker-tape { font-size: 0.9em; padding: 5px 0;}
-            .container { padding: 25px 15px; }
-            .header { margin: -25px -15px 30px -15px; padding: 50px 10px 20px 10px; }
-            .header h1 { font-size: 3.2em; }
-            .section-title { font-size: 1.3em; }
-            .floating-share { bottom: 15px; right: 15px; padding: 10px 15px; font-size: 0.9em; }
+        /* =========================================
+           📱 SUPERCHARGED MOBILE RESPONSIVENESS 
+           ========================================= */
+        @media (max-width: 768px) {
+            body { 
+                padding: 15px 10px; 
+                background-size: 15px 15px;
+            }
+            
+            .container { 
+                padding: 20px 15px; 
+                border-width: 3px; 
+                box-shadow: 6px 6px 0px var(--border-color);
+            }
+            
+            /* Fix Header Margins for Mobile */
+            .header { 
+                margin: -20px -15px 25px -15px; 
+                padding: 60px 15px 20px 15px; 
+                border-radius: 8px 8px 0 0;
+            }
+            .header h1 { font-size: 1.8em; }
+            .header p { font-size: 1em; }
+            
+            /* Force Grid to Stack Vertically on Phones */
+            .grid-2 { 
+                grid-template-columns: 1fr; 
+                gap: 20px; 
+            }
+            
+            /* Better Swipeable Tabs */
+            .tabs-wrapper { 
+                padding-bottom: 10px; 
+                gap: 8px; 
+                margin-bottom: 20px;
+            }
+            .tab-btn { 
+                padding: 10px 14px; 
+                font-size: 0.85em; 
+            }
+            
+            /* Adjust Elements for Easy Tapping */
+            .card { padding: 20px; }
+            .btn, .action-button { 
+                width: 100%; 
+                box-sizing: border-box; 
+                padding: 14px 20px; 
+                font-size: 0.95em;
+            }
+            .action-button { font-size: 1em; }
+            
+            /* Scale Down UI Overlays */
+            .floating-share { 
+                bottom: 20px; 
+                right: 20px; 
+                padding: 12px 20px; 
+                font-size: 0.9em; 
+                box-shadow: 4px 4px 0px var(--border-color);
+            }
+            .theme-toggle { 
+                top: 15px; 
+                right: 15px; 
+                font-size: 0.8em; 
+                padding: 6px 12px;
+                box-shadow: 3px 3px 0px var(--border-color);
+            }
+            
+            /* Hero Card Tweaks */
+            .hero-card { padding: 30px 20px; }
+            .hero-card h2 { font-size: 1.6em; }
         }
     </style>
 </head>
 <body>
 
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
-    <div class="ticker-tape">
-        <p>🔥 WELCOME FRESHERS! 🔥 SURVIVE GKDU 🔥 JOIN THE GROUPS 🔥 GET PREVIOUS YEAR PAPERS 🔥 STUDY HARD 🔥 PARTY HARD 🔥</p>
-    </div>
-
-    <div class="container reveal-pop active">
+    <div class="container">
         
-        <button class="theme-toggle magnetic" id="themeBtn" onclick="toggleTheme()">
-            <span class="theme-icon">🌙</span> Dark
-        </button>
+        <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
 
         <div class="header">
             <h1>Gurukul Kangri</h1>
-            <p>THE UNOFFICIAL GUIDE</p>
+            <p>The Unofficial Fresher's Guide 🚀</p>
         </div>
 
-        <div class="section">
-            <h2 class="section-title reveal-left">🏛️ Portals & Services</h2>
+        <!-- 🌟 ANIMATED TABS NAVIGATION -->
+        <div class="tabs-wrapper">
+            <button class="tab-btn active" onclick="openTab(event, 'tab-portals')">🏛️ Portals</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-community')">📱 Community</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-academics')">📚 Academics & Syllabus</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-campus')">🏢 Campus & Places</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-faq')">💬 FAQs & Reviews</button>
+        </div>
+
+        <!-- TAB 1: PORTALS -->
+        <div id="tab-portals" class="tab-content active">
             <div class="grid-2">
-                <div class="card reveal-pop tilt-card">
+                <div class="card">
                     <h3>General Portals</h3>
-                    <div class="btn-group" style="flex-direction: column;">
-                        <a href="https://share.google/vnUCMSDR4Nt3ovtIa" class="btn magnetic-btn ripple-btn" target="_blank"><span class="btn-icon">🌐</span> Main Website</a>
-                        <a href="https://share.google/mQrSIhndp8oXtUgdC" class="btn btn-secondary magnetic-btn ripple-btn" target="_blank"><span class="btn-icon">⚡</span> Alternate Portal</a>
+                    <div class="btn-group">
+                        <a href="https://share.google/vnUCMSDR4Nt3ovtIa" class="btn" style="background: var(--color-blue);" target="_blank">Main Website ↗</a>
+                        <a href="https://share.google/mQrSIhndp8oXtUgdC" class="btn" style="background: var(--color-green);" target="_blank">Alternate Portal ↗</a>
                     </div>
                 </div>
-                <div class="card reveal-right tilt-card">
+                <div class="card">
                     <h3>Student Services</h3>
-                    <div class="btn-group" style="flex-direction: column;">
-                        <a href="https://share.google/f4ZzQM094yr221HPa" class="btn btn-tertiary magnetic-btn ripple-btn" target="_blank"><span class="btn-icon">💰</span> Download Fee Receipt</a>
-                        <a href="https://share.google/dKpY3ByxepoVHzmUV" class="btn btn-quaternary magnetic-btn ripple-btn" target="_blank"><span class="btn-icon">💯</span> Check Results</a>
+                    <div class="btn-group">
+                        <a href="https://share.google/f4ZzQM094yr221HPa" class="btn" style="background: var(--color-purple);" target="_blank">Download Fee Receipt ↗</a>
+                        <a href="https://share.google/dKpY3ByxepoVHzmUV" class="btn" style="background: var(--color-yellow);" target="_blank">Check Results ↗</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="section">
-            <h2 class="section-title reveal-right">📱 Campus Community</h2>
+        <!-- TAB 2: COMMUNITY -->
+        <div id="tab-community" class="tab-content">
             <div class="grid-2">
-                <div class="card reveal-left tilt-card">
-                    <h3>Chat Groups</h3>
-                    <div class="btn-group" style="flex-direction: column;">
-                        <a href="https://ig.me/j/AbYV1fHlJ03KWBBm/" class="btn magnetic-btn ripple-btn" target="_blank"><span class="btn-icon">👨🏽</span> Boys Discussion</a>
-                        <a href="https://ig.me/j/AbYq82f0ZOMoNNI3/" class="btn btn-tertiary magnetic-btn ripple-btn" target="_blank"><span class="btn-icon">👩🏽</span> Girls Discussion</a>
+                <div class="card">
+                    <h3>WhatsApp Groups</h3>
+                    <div class="btn-group">
+                        <a href="https://ig.me/j/AbYV1fHlJ03KWBBm/" class="btn" style="background: var(--color-orange);" target="_blank">👨🏽 Boys Discussion Group</a>
+                        <a href="https://ig.me/j/AbYq82f0ZOMoNNI3/" class="btn" style="background: var(--color-pink);" target="_blank">👩🏽 Girls Discussion Group</a>
                     </div>
                 </div>
-                <div class="card reveal-pop tilt-card">
-                    <h3>Insta Directory</h3>
+                <div class="card">
+                    <h3>Instagram Directory</h3>
                     <ul class="link-list">
-                        <li><a href="https://www.instagram.com/gkv_hdr?igsh=MTk0ZGprc3I2dWtrYQ==" class="ripple-btn" target="_blank">Official GKV Page <span>↗</span></a></li>
-                        <li><a href="https://www.instagram.com/gkviians?igsh=MjJjemZsaGZ3MzN5" class="ripple-btn" target="_blank">@gkviians (Memes) <span>↗</span></a></li>
-                        <li><a href="https://www.instagram.com/na_samaz_bandar?igsh=MTh4bngxaTRzcnc5YQ==" class="ripple-btn" target="_blank">@na_samaz_bandar <span>↗</span></a></li>
-                        <li><a href="https://www.instagram.com/lekhram_diaries?igsh=cGI0amozZXNzb3Ru" class="ripple-btn" target="_blank">@lekhram_diaries <span>↗</span></a></li>
+                        <li><a href="https://www.instagram.com/gkv_hdr?igsh=MTk0ZGprc3I2dWtrYQ==" target="_blank">Official GKV Page <span>↗</span></a></li>
+                        <li><a href="https://www.instagram.com/gkviians?igsh=MjJjemZsaGZ3MzN5" target="_blank">@gkviians (Memes) <span>↗</span></a></li>
+                        <li><a href="https://www.instagram.com/na_samaz_bandar?igsh=MTh4bngxaTRzcnc5YQ==" target="_blank">@na_samaz_bandar <span>↗</span></a></li>
+                        <li><a href="https://www.instagram.com/lekhram_diaries?igsh=cGI0amozZXNzb3Ru" target="_blank">@lekhram_diaries <span>↗</span></a></li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div class="section">
-            <h2 class="section-title reveal-left">📚 Academic Resources</h2>
-            <div class="card reveal-pop tilt-card">
-                <div class="btn-group" style="flex-direction: column;">
-                    <a href="https://drive.google.com/drive/mobile/folders/1nVBWVYDDvre_38XRq506y6ii7-zo_XT6?fbclid=PAT01DUATq69FwZG9mAmV4dG4DYWVtAjEwAHNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp4gyXM6uuy0MKePYEZRO-ErmfkhkNwGhJSHX6svjKgQfqNAwKKPBEt9qq8gv_aem_P1S3L95_kZj3q1tY1_MxcQ" class="btn btn-quaternary magnetic-btn ripple-btn" target="_blank"><span class="btn-icon">📂</span> Download All Papers</a>
-                    <a href="https://share.google/G90iNCkTZpMHpG3pT" class="btn btn-secondary magnetic-btn ripple-btn" target="_blank"><span class="btn-icon">📝</span> FET Previous Papers</a>
+        <!-- TAB 3: ACADEMICS & SYLLABUS -->
+        <div id="tab-academics" class="tab-content">
+            <div class="grid-2">
+                <div class="card">
+                    <h3>📚 Syllabus Section</h3>
+                    <div class="btn-group">
+                        <a href="https://share.google/DoOGoUy0wmEEFN7Lk" class="btn" style="background: var(--color-green);" target="_blank">📜 FET GKV Syllabus ↗</a>
+                        <a href="https://www.gkv.ac.in/academics/syllabus-old/" class="btn" style="background: var(--color-blue);" target="_blank">📁 All Courses Syllabus ↗</a>
+                    </div>
                 </div>
-                <div class="tip-box">
-                    <strong>💡 PRO TIP:</strong> The first semester sets your trajectory. Securing a high SGPA early on provides a massive advantage. Focus heavily on mastering core subjects!
+                <div class="card">
+                    <h3>📝 Previous Year Papers</h3>
+                    <div class="btn-group">
+                        <a href="https://share.google/G90iNCkTZpMHpG3pT" class="btn" style="background: var(--color-pink);" target="_blank">FET Previous Papers ↗</a>
+                        <a href="https://drive.google.com/drive/mobile/folders/1nVBWVYDDvre_38XRq506y6ii7-zo_XT6?fbclid=PAT01DUATq69FwZG9mAmV4dG4DYWVtAjEwAHNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp4gyXM6uuy0MKePYEZRO-ErmfkhkNwGhJSHX6svjKgQfqNAwKKPBEt9qq8gv_aem_P1S3L95_kZj3q1tY1_MxcQ" class="btn" style="background: var(--color-yellow);" target="_blank">Download All Papers ↗</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tip-box">
+                <strong>💡 PRO TIP:</strong> The first semester sets your trajectory. Securing a high SGPA early on provides a massive advantage. Focus heavily on mastering core subjects!
+            </div>
+        </div>
+
+        <!-- TAB 4: CAMPUS & PLACES -->
+        <div id="tab-campus" class="tab-content">
+            <div class="hero-card" style="background: var(--color-purple);">
+                <h2>🗺️ Must Visit Places</h2>
+                <p>Explore the best spots around Haridwar and GKV campus to hang out, eat, and relax!</p>
+                <a href="https://gkvcommunity.github.io/Mustvisit-places/" class="action-button" style="background: var(--color-yellow);" target="_blank">Explore Places 📍</a>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Hostel & Campus Gallery</h3>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/mDGiPte6tJTpeBtB7" class="btn" style="background: var(--color-orange);" target="_blank">Hostel Images 📸</a>
+                        <a href="https://maps.app.goo.gl/F7QrGuoJQ2ATgpur8" class="btn" style="background: var(--color-blue);" target="_blank">Campus Images 📸</a>
+                    </div>
+                </div>
+                <div class="card" style="display: flex; align-items: center;">
+                    <div class="tip-box" style="margin-top: 0; width: 100%;">
+                        <strong>💡 SURVIVAL TIP:</strong> Be self-reliant! Campus amenities can be unpredictable. Keep dry snacks and basic utensils handy.
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="section">
-            <h2 class="section-title reveal-right">🏢 Campus & Hostel</h2>
-            <div class="card reveal-left tilt-card">
-                <div class="btn-group">
-                    <a href="https://maps.app.goo.gl/mDGiPte6tJTpeBtB7" class="btn magnetic-btn ripple-btn" target="_blank"><span class="btn-icon">🏠</span> Hostel Images</a>
-                    <a href="https://maps.app.goo.gl/F7QrGuoJQ2ATgpur8" class="btn magnetic-btn ripple-btn" style="background: var(--color-purple);" target="_blank"><span class="btn-icon">🏫</span> Campus Images</a>
-                </div>
-                <div class="tip-box">
-                    <strong>☢️ SURVIVAL TIP:</strong> Be self-reliant! Campus amenities can be unpredictable. Highly recommend bringing your own dry snacks and basic utensils.
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title reveal-pop">💬 Fresher FAQs</h2>
-            
-            <input type="text" id="faqSearch" class="faq-search-box reveal-left" placeholder="🔍 TYPE HERE TO SEARCH FAQS..." onkeyup="filterFAQs()">
+        <!-- TAB 5: FAQs & REVIEWS -->
+        <div id="tab-faq" class="tab-content">
+            <input type="text" id="faqSearch" class="faq-search-box" placeholder="🔍 Search FAQs (e.g. laptop, hostel, dress)..." onkeyup="filterFAQs()">
 
             <div class="faq-container" id="faqContainer">
-                
-                <details class="faq-item reveal-right">
+                <details class="faq-item">
                     <summary>Are laptops mandatory for 1st-year?</summary>
                     <div class="faq-content">
                         While not strictly mandatory for day one, you'll need one for coding assignments and projects by the middle of the first semester. A decent mid-range laptop is enough!
                     </div>
                 </details>
                 
-                <details class="faq-item reveal-left">
+                <details class="faq-item">
                     <summary>Is a hostel room guaranteed for freshers?</summary>
                     <div class="faq-content">
                         Not automatically. Hostel seats are limited and allotted strictly on a <strong>first-come, first-served</strong> basis. Generally, 1st-year students and a few 2nd-year students get accommodation. Apply as early as possible!
                     </div>
                 </details>
 
-                <details class="faq-item reveal-right">
+                <details class="faq-item">
                     <summary>Honest review: How are the hostel facilities?</summary>
                     <div class="faq-content">
                         To be completely transparent, it's a basic survival experience. Students occasionally face issues with water supply, sanitation, and average mess food. We highly recommend being self-reliant and keeping dry snacks handy!
                     </div>
                 </details>
 
-                <details class="faq-item reveal-left">
+                <details class="faq-item">
                     <summary>How are the classrooms and practical labs?</summary>
                     <div class="faq-content">
                         The engineering building infrastructure is decent. Practical labs and workshops are average—they meet all your basic academic requirements and get the job done, but don't expect ultra-modern tech parks.
                     </div>
                 </details>
 
-                <details class="faq-item reveal-right">
-                    <summary>How are the professors and teaching staff?</summary>
+                <details class="faq-item">
+                    <summary>What is the official status of the university?</summary>
                     <div class="faq-content">
-                        Most faculty members are very knowledgeable and supportive! Each branch typically has a staff strength of 6–7 teachers (around 2-3 permanent faculty, and the rest are contractual). Don't hesitate to reach out to them for help.
+                        Gurukul Kangri (GKDU) is a recognized <strong>Deemed-to-be University</strong>.
                     </div>
                 </details>
 
+                <details class="faq-item">
+                    <summary>Is there a strict dress code?</summary>
+                    <div class="faq-content">
+                        Yes, Gurukul Kangri maintains a traditional environment. During initial days and formal events, standard decent clothing is expected. Avoid highly ripped jeans or overly casual wear in academic blocks.
+                    </div>
+                </details>
+            </div>
+
+            <div class="hero-card" style="background: var(--color-green); margin-top: 40px; transform: rotate(1deg);">
+                <h2>⭐ Help Future Freshers!</h2>
+                <p>Your experience can guide the next batch. Drop a review!</p>
+                <a href="https://forms.gle/s2w2vbcMQtyx6h8x5" class="action-button" target="_blank">✍️ Write a Review</a>
             </div>
         </div>
 
-        <div class="review-section reveal-pop">
-            <h2>⭐ Help Future Freshers!</h2>
-            <p>Your experience can guide the next batch.</p>
-            <a href="https://forms.gle/s2w2vbcMQtyx6h8x5" class="action-button magnetic-btn ripple-btn" target="_blank">✍️ Drop a Review</a>
-        </div>
-
-        <div class="footer reveal-pop">
-            <p>Crafted with ❤️ by your senior</p>
+        <div class="footer">
+            <p>Crafted with <span>❤️</span> by your senior</p>
         </div>
 
     </div>
 
-    <button class="floating-share magnetic-btn ripple-btn" id="shareButton" onclick="shareWebsite()">
+    <!-- Floating Share Button -->
+    <button class="floating-share" id="shareButton" onclick="shareWebsite()">
         📢 Share Guide
     </button>
 
     <script>
-        // --- CUSTOM CURSOR LOGIC ---
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
+        // 1. Animated Tab Logic
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
             
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
+            // Hide all content areas
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Remove active state from all buttons
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            // Show the current tab, and add an "active" class to the button
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
 
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 400, fill: "forwards", easing: "ease-out" });
-        });
-
-        document.querySelectorAll('a, button, input, summary, .magnetic').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursorOutline.style.width = '60px';
-                cursorOutline.style.height = '60px';
-                cursorOutline.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursorOutline.style.width = '40px';
-                cursorOutline.style.height = '40px';
-                cursorOutline.style.backgroundColor = 'transparent';
-            });
-        });
-
-        // --- 3D TILT EFFECT FOR CARDS ---
-        const tiltCards = document.querySelectorAll('.tilt-card');
-        tiltCards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left; 
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = ((y - centerY) / centerY) * -6; 
-                const rotateY = ((x - centerX) / centerX) * 6;
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
-                card.style.transition = 'none';
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-                card.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-            });
-        });
-
-        // --- MAGNETIC BUTTONS ---
-        const magneticBtns = document.querySelectorAll('.magnetic-btn, .magnetic');
-        magneticBtns.forEach(btn => {
-            btn.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                
-                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-            });
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = 'translate(0px, 0px)';
-            });
-        });
-
-        // --- RIPPLE EFFECT ON CLICK ---
-        const rippleElements = document.querySelectorAll('.ripple-btn');
-        rippleElements.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                let x = e.clientX - e.target.getBoundingClientRect().left;
-                let y = e.clientY - e.target.getBoundingClientRect().top;
-                
-                let ripples = document.createElement('span');
-                ripples.style.left = x + 'px';
-                ripples.style.top = y + 'px';
-                ripples.classList.add('ripple');
-                this.appendChild(ripples);
-                
-                setTimeout(() => {
-                    ripples.remove();
-                }, 600);
-            });
-        });
-
-        // --- THEME TOGGLE LOGIC ---
+        // 2. Theme Toggle Logic
         function toggleTheme() {
             const body = document.documentElement;
             const btn = document.getElementById('themeBtn');
             
-            try {
-                if (body.getAttribute('data-theme') === 'dark') {
-                    body.removeAttribute('data-theme');
-                    localStorage.setItem('theme', 'light');
-                    btn.innerHTML = '<span class="theme-icon">🌙</span> Dark';
-                } else {
-                    body.setAttribute('data-theme', 'dark');
-                    localStorage.setItem('theme', 'dark');
-                    btn.innerHTML = '<span class="theme-icon">☀️</span> Light';
-                }
-            } catch (e) {
-                if (body.getAttribute('data-theme') === 'dark') {
-                    body.removeAttribute('data-theme');
-                    btn.innerHTML = '<span class="theme-icon">🌙</span> Dark';
-                } else {
-                    body.setAttribute('data-theme', 'dark');
-                    btn.innerHTML = '<span class="theme-icon">☀️</span> Light';
-                }
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                btn.innerHTML = "🌙 Dark";
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                btn.innerHTML = "☀️ Light";
             }
         }
 
-        try {
-            if (localStorage.getItem('theme') === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                document.getElementById('themeBtn').innerHTML = '<span class="theme-icon">☀️</span> Light';
-            }
-        } catch(e) {}
+        // Initialize Theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById('themeBtn').innerHTML = "☀️ Light";
+        }
 
-        // --- LIVE SEARCH LOGIC ---
+        // 3. Live Search Logic for FAQs
         function filterFAQs() {
             let input = document.getElementById('faqSearch').value.toLowerCase();
             let details = document.querySelectorAll('.faq-item');
@@ -871,66 +751,36 @@
                 let text = item.innerText.toLowerCase();
                 if (text.includes(input)) {
                     item.style.display = "";
-                    item.style.animation = "popIn 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards";
                 } else {
                     item.style.display = "none";
                 }
             });
         }
 
-        // --- SHARE BUTTON LOGIC ---
+        // 4. Native Share API
         function shareWebsite() {
             const shareData = {
                 title: "GKDU Fresher's Guide 🚀",
-                text: "Check out this ultimate unofficial survival guide for Gurukul Kangri freshers!",
+                text: "Check out this ultimate unofficial survival guide for Gurukul Kangri freshers! Notes, syllabus, places to visit, and hostel tips inside.",
                 url: window.location.href
             };
 
-            const btn = document.getElementById('shareButton');
-            
             if (navigator.share) {
-                navigator.share(shareData).catch(() => {});
-            } 
-            else if (navigator.clipboard) {
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    const originalText = btn.innerHTML;
-                    btn.innerHTML = "✅ COPIED!";
-                    btn.style.background = "var(--color-green)";
-                    btn.style.transform = "scale(1.1)";
-                    
-                    setTimeout(() => {
-                        btn.innerHTML = originalText;
-                        btn.style.background = "var(--color-blue)";
-                        btn.style.transform = "scale(1)";
-                    }, 2000);
-                }).catch(() => {});
-            } 
-            else {
-                alert("Link copying is blocked by your browser settings. You can copy the URL directly from the address bar!");
+                navigator.share(shareData).catch((error) => console.log('Error sharing:', error));
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                const btn = document.getElementById('shareButton');
+                const originalText = btn.innerHTML;
+                
+                btn.innerHTML = "✅ COPIED!";
+                btn.style.background = "var(--color-green)";
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = "var(--color-blue)";
+                }, 2000);
             }
         }
-
-        // --- SCROLL REVEAL OBSERVER ---
-        document.addEventListener("DOMContentLoaded", function() {
-            const revealElements = document.querySelectorAll(".reveal-left, .reveal-right, .reveal-pop");
-
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("active");
-                        observer.unobserve(entry.target); 
-                    }
-                });
-            }, {
-                root: null,
-                threshold: 0.1, 
-                rootMargin: "0px 0px -50px 0px"
-            });
-
-            revealElements.forEach(reveal => {
-                revealObserver.observe(reveal);
-            });
-        });
     </script>
 </body>
 </html>
