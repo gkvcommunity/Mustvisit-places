@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NPTEL Soft Skills Master Quiz - All 160 Questions</title>
+    <title>NPTEL Soft Skills Master Quiz - Instant Feedback</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; }
         .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
@@ -15,23 +15,23 @@
         .options label { display: flex; align-items: center; cursor: pointer; padding: 8px; border-radius: 5px; transition: background 0.2s; }
         .options label:hover { background: #f0f8ff; }
         .options input { margin-right: 10px; }
-        .feedback { margin-top: 10px; font-weight: bold; display: none; padding: 10px; border-radius: 5px; }
-        .correct { background-color: #d4edda; color: #155724; }
-        .incorrect { background-color: #f8d7da; color: #721c24; }
+        .feedback { margin-top: 10px; font-weight: bold; display: none; padding: 10px; border-radius: 5px; transition: all 0.3s ease; }
+        .correct { background-color: #d4edda; color: #155724; border-left: 5px solid #28a745; }
+        .incorrect { background-color: #f8d7da; color: #721c24; border-left: 5px solid #dc3545; }
         .submit-btn { display: block; width: 100%; padding: 15px; background: #0056b3; color: white; border: none; border-radius: 5px; font-size: 1.2em; cursor: pointer; margin-top: 20px; font-weight: bold;}
         .submit-btn:hover { background: #004494; }
-        .score-display { text-align: center; font-size: 1.5em; font-weight: bold; margin-top: 20px; color: #0056b3; }
+        .score-display { text-align: center; font-size: 1.5em; font-weight: bold; margin-top: 20px; color: #0056b3; padding: 20px; background: #e9ecef; border-radius: 8px; display: none; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>NPTEL Soft Skills - Complete 160 Question Master Test</h1>
-    <p style="text-align: center;">Attempt the questions below. The correct answers will be revealed after submission.</p>
+    <h1>NPTEL Soft Skills - Instant Practice Test</h1>
+    <p style="text-align: center;">Click an option to see the answer instantly. Click the button at the bottom to calculate your final score!</p>
     
     <div id="quiz-container"></div>
     
-    <button class="submit-btn" onclick="submitQuiz()">Submit Quiz & Show Answers</button>
+    <button class="submit-btn" onclick="calculateFinalScore()">Calculate Final Score</button>
     <div id="score-display" class="score-display"></div>
 </div>
 
@@ -210,7 +210,7 @@
 
     const container = document.getElementById('quiz-container');
 
-    // Render Quiz
+    // Render Quiz & Add Listeners for Instant Feedback
     quizData.forEach((item, index) => {
         const questionBlock = document.createElement('div');
         questionBlock.className = 'question-block';
@@ -234,6 +234,26 @@
             input.value = key;
             input.id = `q${index}_${key}`;
 
+            // --- INSTANT EVALUATION LOGIC ---
+            input.addEventListener('change', () => {
+                const inputs = document.querySelectorAll(`input[name="question${index}"]:checked`);
+                const selectedAnswers = Array.from(inputs).map(i => i.value).sort();
+                const correctAnswers = [...item.ans].sort();
+                
+                const feedbackBlock = document.getElementById(`feedback-${index}`);
+                feedbackBlock.style.display = 'block';
+
+                const isCorrect = JSON.stringify(selectedAnswers) === JSON.stringify(correctAnswers);
+
+                if (isCorrect) {
+                    feedbackBlock.className = 'feedback correct';
+                    feedbackBlock.innerText = 'Correct! The answer is: ' + item.ans.join(', ').toUpperCase();
+                } else {
+                    feedbackBlock.className = 'feedback incorrect';
+                    feedbackBlock.innerText = 'Incorrect. The correct answer is: ' + item.ans.join(', ').toUpperCase();
+                }
+            });
+
             label.appendChild(input);
             label.appendChild(document.createTextNode(` ${key}) ${value}`));
             li.appendChild(label);
@@ -249,33 +269,25 @@
         container.appendChild(questionBlock);
     });
 
-    function submitQuiz() {
+    // --- FINAL SCORE CALCULATOR ---
+    function calculateFinalScore() {
         let score = 0;
 
         quizData.forEach((item, index) => {
             const inputs = document.querySelectorAll(`input[name="question${index}"]:checked`);
             const selectedAnswers = Array.from(inputs).map(input => input.value).sort();
-            const correctAnswers = item.ans.sort();
+            const correctAnswers = [...item.ans].sort();
             
-            const feedbackBlock = document.getElementById(`feedback-${index}`);
-            feedbackBlock.style.display = 'block';
-
-            const isCorrect = JSON.stringify(selectedAnswers) === JSON.stringify(correctAnswers);
-
-            if (isCorrect) {
+            if (JSON.stringify(selectedAnswers) === JSON.stringify(correctAnswers)) {
                 score++;
-                feedbackBlock.className = 'feedback correct';
-                feedbackBlock.innerText = 'Correct! The answer is: ' + item.ans.join(', ').toUpperCase();
-            } else {
-                feedbackBlock.className = 'feedback incorrect';
-                feedbackBlock.innerText = 'Incorrect. The correct answer is: ' + item.ans.join(', ').toUpperCase();
             }
         });
 
         const scoreDisplay = document.getElementById('score-display');
-        scoreDisplay.innerText = `You scored ${score} out of ${quizData.length}!`;
+        scoreDisplay.style.display = 'block';
+        scoreDisplay.innerText = `Final Score: ${score} out of ${quizData.length}!`;
         
-        // Scroll to bottom to see score
+        // Scroll to the bottom to see the score
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
 </script>
