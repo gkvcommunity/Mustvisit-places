@@ -1,142 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soft Skills Quiz</title>
-<style>
-  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f9f9f9; padding: 20px; color: #333; }
-  h1 { text-align: center; color: #0056b3; }
-  .quiz-container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-  .question-block { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
-  .question-text { font-weight: bold; margin-bottom: 10px; }
-  .options { list-style: none; padding: 0; }
-  .options li { margin-bottom: 5px; }
-  .option-btn { width: 100%; text-align: left; padding: 10px; border: 1px solid #ccc; border-radius: 4px; background: #fff; cursor: pointer; transition: background 0.2s; }
-  .option-btn:hover { background: #e9ecef; }
-  .feedback { margin-top: 10px; font-weight: bold; display: none; padding: 10px; border-radius: 4px; }
-  .feedback.show { display: block; background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPTEL Soft Skills Master Quiz - All 160 Questions</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #0056b3; }
+        .question-block { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .question-text { font-size: 1.1em; font-weight: bold; margin-bottom: 10px; }
+        .options { list-style-type: none; padding: 0; }
+        .options li { margin: 8px 0; }
+        .options label { display: flex; align-items: center; cursor: pointer; padding: 8px; border-radius: 5px; transition: background 0.2s; }
+        .options label:hover { background: #f0f8ff; }
+        .options input { margin-right: 10px; }
+        .feedback { margin-top: 10px; font-weight: bold; display: none; padding: 10px; border-radius: 5px; }
+        .correct { background-color: #d4edda; color: #155724; }
+        .incorrect { background-color: #f8d7da; color: #721c24; }
+        .submit-btn { display: block; width: 100%; padding: 15px; background: #0056b3; color: white; border: none; border-radius: 5px; font-size: 1.2em; cursor: pointer; margin-top: 20px; font-weight: bold;}
+        .submit-btn:hover { background: #004494; }
+        .score-display { text-align: center; font-size: 1.5em; font-weight: bold; margin-top: 20px; color: #0056b3; }
+    </style>
 </head>
 <body>
 
-<div class="quiz-container">
-  <h1>Soft Skills Comprehensive Quiz</h1>
-  <div id="quiz"></div>
+<div class="container">
+    <h1>NPTEL Soft Skills - Complete 160 Question Master Test</h1>
+    <p style="text-align: center;">Attempt the questions below. The correct answers will be revealed after submission.</p>
+    
+    <div id="quiz-container"></div>
+    
+    <button class="submit-btn" onclick="submitQuiz()">Submit Quiz & Show Answers</button>
+    <div id="score-display" class="score-display"></div>
 </div>
 
 <script>
-  // All 60 questions from Week 1 to Week 4
-  const quizData = [
-    // Week 1[span_12](start_span)[span_12](end_span)[span_13](start_span)[span_13](end_span)[span_14](start_span)[span_14](end_span)
-    { q: "1. Hearing is a physiological activity, whereas listening is a[span_15](start_span)[span_15](end_span)", opts: ["a) mental", "b) physical", "c) social", "d) psychological"], ans: "a) mental (or d) psychological based on context)" },
-    { q: "2. The system of personality that operates on the pleasure principle and represents the true psychic reality is the[span_16](start_span)[span_16](end_span)", opts: ["a) ego", "b) superego", "c) id", "d) creative self"], ans: "c) id" },
-    { q: "3. In the six thinking hats technique, the hat associated with generating ideas is the[span_17](start_span)[span_17](end_span)", opts: ["a) white hat", "b) yellow hat", "c) green hat", "d) blue hat"], ans: "c) green hat" },
-    { q: "4. The word 'personality' is derived from the Latin word persona, meaning[span_18](start_span)[span_18](end_span)", opts: ["a) mind", "b) mask", "c) mimesis", "d) personal"], ans: "b) mask" },
-    { q: "5. The shared background of experience between a sender and a receiver, essential for successful communication, is called the:[span_19](start_span)[span_19](end_span)", opts: ["a) common frame of reference", "b) feedback loop", "c) communication channel", "d) grapevine"], ans: "a) common frame of reference" },
-    { q: "6. A recruiter would rather hire a candidate with a pleasant smile and good communication skills than one who has:[span_20](start_span)[span_20](end_span)", opts: ["a) a foreign degree", "b) a very good CGPA but is doing nothing", "c) several years of work experience", "d) strong technical certifications"], ans: "b) a very good CGPA but is doing nothing" },
-    { q: "7. The word 'communication' derives from the Latin word communicare, which means:[span_21](start_span)[span_21](end_span)", opts: ["a) To speak", "b) To share", "c) To inform", "d) To persuade"], ans: "b) To share" },
-    { q: "8. 'Grapevine' in organizational communication refers to:[span_22](start_span)[span_22](end_span)", opts: ["a) A formal upward channel of communication", "b) An informal channel that may be rumor-based and not always authentic", "c) External communication with government agencies", "d) Communication through company websites and pamphlets"], ans: "b) An informal channel that may be rumor-based and not always authentic" },
-    { q: "9. Approximately what percentage of one's time (in any job) is spent in listening?[span_23](start_span)[span_23](end_span)", opts: ["a) 30-40 percent", "b) 40-50 percent", "c) 60-75 percent", "d) 80-90 percent"], ans: "b) 40-50 percent" },
-    { q: "10. Extracting meaning from a received message (receiver's task) is:[span_24](start_span)[span_24](end_span)", opts: ["a) Code", "b) Interpreting", "c) Encode", "d) Decode"], ans: "d) Decode" },
-    { q: "11. Which of the following are behavioural soft skills? (Select all that apply)[span_25](start_span)[span_25](end_span)", opts: ["a) Self-awareness", "b) Technical competence", "c) Persistence", "d) Knowledge"], ans: "a) Self-awareness, c) Persistence" },
-    { q: "12. Which of the following are part of the Seven Cs of effective communication? (Select all that apply)[span_26](start_span)[span_26](end_span)", opts: ["a) Crispness", "b) Conciseness", "c) Creativity", "d) Courtesy"], ans: "b) Conciseness, d) Courtesy" },
-    { q: "13. According to De Bono's Six Thinking Hats technique, which of the following hat function pairings are correct? (Select all that apply)[span_27](start_span)[span_27](end_span)", opts: ["a) White hat - seeing things objectively", "b) Red hat - generating ideas", "c) Yellow hat - fighting against and preventing mistakes", "d) Blue hat - organizing and controlling the thought process"], ans: "a) White hat - seeing things objectively, d) Blue hat - organizing and controlling the thought process" },
-    { q: "14. Which of the following statements about Freud's theory of personality are correct? (Select all that apply)[span_28](start_span)[span_28](end_span)[span_29](start_span)[span_29](end_span)", opts: ["a) The Id operates through the Reality Principle", "b) The Ego is the executive of the personality and organized portion of the Id", "c) The Superego strives for perfection rather than pleasure", "d) The Superego opposes only the Id, but supports the Ego"], ans: "b) The Ego is the executive of the personality and organized portion of the Id, c) The Superego strives for perfection rather than pleasure" },
-    { q: "15. Match the concept with the correct thinker/source:[span_30](start_span)[span_30](end_span)", opts: ["a) P-3, Q-1, R-2, S-4", "b) P-1, Q-3, R-4, S-2", "c) P-3, Q-1, R-4, S-2", "d) P-2, Q-1, R-3, S-4"], ans: "a) P-3, Q-1, R-2, S-4 (Swami Vivekananda - Arise, awake; Adler - Superiority; Freud - Id, Ego, Superego; Hume - Truth springs from argument)" },
+    const quizData = [
+        // --- OFFICIAL NPTEL WEEK 1 QUESTIONS ---
+        { q: "1. Hearing is a physiological activity, whereas listening is a ___ one.", options: { a: "mental", b: "physical", c: "social", d: "psychological" }, ans: ["a"] },
+        { q: "2. The system of personality that operates on the pleasure principle and represents the true psychic reality is the", options: { a: "ego", b: "superego", c: "id", d: "creative self" }, ans: ["c"] },
+        { q: "3. In the six thinking hats technique, the hat associated with generating ideas is the", options: { a: "white hat", b: "yellow hat", c: "green hat", d: "blue hat" }, ans: ["c"] },
+        { q: "4. The word 'personality' is derived from the Latin word persona, meaning", options: { a: "mind", b: "mask", c: "mimesis", d: "personal" }, ans: ["b"] },
+        { q: "5. The shared background of experience between a sender and a receiver, essential for successful communication, is called the:", options: { a: "common frame of reference", b: "feedback loop", c: "communication channel", d: "grapevine" }, ans: ["a"] },
+        { q: "6. A recruiter would rather hire a candidate with a pleasant smile and good communication skills than one who has:", options: { a: "a foreign degree", b: "a very good CGPA but is doing nothing", c: "several years of work experience", d: "strong technical certifications" }, ans: ["b"] },
+        { q: "7. The word 'communication' derives from the Latin word communicare, which means:", options: { a: "To speak", b: "To share", c: "To inform", d: "To persuade" }, ans: ["b"] },
+        { q: "8. 'Grapevine' in organizational communication refers to:", options: { a: "A formal upward channel of communication", b: "An informal channel that may be rumor-based and not always authentic", c: "External communication with government agencies", d: "Communication through company websites and pamphlets" }, ans: ["b"] },
+        { q: "9. Approximately what percentage of one's time (in any job) is spent in listening?", options: { a: "30-40 percent", b: "40-50 percent", c: "60-75 percent", d: "80-90 percent" }, ans: ["b"] },
+        { q: "10. Extracting meaning from a received message (receiver's task) is:", options: { a: "Code", b: "Interpreting", c: "Encode", d: "Decode" }, ans: ["d"] },
+        { q: "11. Which of the following are behavioural soft skills? (Select all that apply)", options: { a: "Self-awareness", b: "Technical competence", c: "Persistence", d: "Knowledge" }, ans: ["a", "c"], isMulti: true },
+        { q: "12. Which of the following are part of the Seven Cs of effective communication? (Select all that apply)", options: { a: "Crispness", b: "Conciseness", c: "Creativity", d: "Courtesy" }, ans: ["b", "d"], isMulti: true },
+        { q: "13. According to De Bono's Six Thinking Hats technique, which of the following hat function pairings are correct? (Select all that apply)", options: { a: "White hat - seeing things objectively", b: "Red hat - generating ideas", c: "Yellow hat - fighting against and preventing mistakes", d: "Blue hat - organizing and controlling the thought process" }, ans: ["a", "d"], isMulti: true },
+        { q: "14. Which of the following statements about Freud's theory of personality are correct? (Select all that apply)", options: { a: "The Id operates through the Reality Principle", b: "The Ego is the executive of the personality and organized portion of the Id", c: "The Superego strives for perfection rather than pleasure", d: "The Superego opposes only the Id, but supports the Ego" }, ans: ["b", "c"], isMulti: true },
+        { q: "15. Match the concept with the correct thinker/source: P. Truth springs from argument... Q. Arise, awake... R. Fictional Finalism... S. Id, Ego...", options: { a: "P-3, Q-1, R-2, S-4", b: "P-1, Q-3, R-4, S-2", c: "P-3, Q-1, R-4, S-2", d: "P-2, Q-1, R-3, S-4" }, ans: ["a"] },
 
-    // Week 2[span_31](start_span)[span_31](end_span)[span_32](start_span)[span_32](end_span)[span_33](start_span)[span_33](end_span)
-    { q: "1. In the glass-of-water example, a person who says the glass is 'half empty' is described as:[span_34](start_span)[span_34](end_span)", opts: ["a) An optimist", "b) A pessimist", "c) An introvert", "d) An extrovert"], ans: "b) A pessimist" },
-    { q: "2. According to Dr. Eric Berne, the attitude 'I'm okay, you are okay' represents a person who is:[span_35](start_span)[span_35](end_span)", opts: ["a) Imposing", "b) Negative", "c) Positive and cooperative", "d) Introverted"], ans: "c) Positive and cooperative" },
-    { q: "3. According to Mehrabian, the percentage of communication that is verbal is:[span_36](start_span)[span_36](end_span)", opts: ["a) 7%", "b) 35%", "c) 38%", "d) 55%"], ans: "a) 7%" },
-    { q: "4. Which voice fault results from the inflammation of the larynx and usually needs a speech therapist?[span_37](start_span)[span_37](end_span)", opts: ["a) Throatiness", "b) Breathiness", "c) Nasalization", "d) Hoarseness"], ans: "d) Hoarseness" },
-    { q: "5. In the Johari Window, the region representing information that is unknown by the person but known by others is the:[span_38](start_span)[span_38](end_span)", opts: ["a) Open area", "b) Blind area", "c) Hidden area", "d) Unknown area"], ans: "b) Blind area" },
-    { q: "6. Which of the following is not listed as a feature of telephonic communication?[span_39](start_span)[span_39](end_span)", opts: ["a) Clarity", "b) Courtesy", "c) Brevity", "d) Confrontation"], ans: "d) Confrontation" },
-    { q: "7. Teleconferencing is generally considered ineffective for which of the following purpose?[span_40](start_span)[span_40](end_span)", opts: ["a) Connecting geographically dispersed people", "b) Negotiations", "c) Arranging meetings at short notice", "d) Saving travel costs"], ans: "b) Negotiations" },
-    { q: "8. The change in pitch produced by the vibration of the vocal cords is called[span_41](start_span)[span_41](end_span)", opts: ["a) Intonation", "b) Articulation", "c) Inflection", "d) Modulation"], ans: "c) Inflection" },
-    { q: "9. Voice mail acts as a substitute to short memos and phone calls and helps solve ______ difficulties.[span_42](start_span)[span_42](end_span)", opts: ["a) Special zone", "b) Time zone", "c) Communication zone", "d) Talk zone"], ans: "b) Time zone" },
-    { q: "10. Which two of the following are listed as ways to develop positivism? (Select all that apply)[span_43](start_span)[span_43](end_span)", opts: ["a) Believe in your abilities", "b) Imitate others completely", "c) Concentrate on your goals", "d) Hide your weaknesses permanently"], ans: "a) Believe in your abilities, c) Concentrate on your goals" },
-    { q: "11. While sending a call, which two of the following guidelines should be followed? (Select all that apply)[span_44](start_span)[span_44](end_span)", opts: ["a) Recline in your chair", "b) Place your own call", "c) Plan an agenda", "d) Avoid identifying yourself"], ans: "b) Place your own call, c) Plan an agenda" },
-    { q: "12. Which two statements about voice mail are correct? (Select all that apply)[span_45](start_span)[span_45](end_span)", opts: ["a) It provides immediate, specific feedback.", "b) It acts as a substitute to short memos and phone calls.", "c) It solves time-zone difficulties.", "d) It increases interoffice paperwork."], ans: "b) It acts as a substitute to short memos and phone calls., c) It solves time-zone difficulties." },
-    { q: "13. Which of the following points highlight the importance of telephonic communication? (Select all that apply)[span_46](start_span)[span_46](end_span)[span_47](start_span)[span_47](end_span)", opts: ["a) Provides immediate face-to-face feedback", "b) Allows reading of facial expressions", "c) Bridges time and distance gaps", "d) Entails low cost"], ans: "c) Bridges time and distance gaps, d) Entails low cost" },
-    { q: "14. Which two of the following are described as characteristics of voice? (Select all that apply)[span_48](start_span)[span_48](end_span)", opts: ["a) Volume", "b) Grammar", "c) Pitch", "d) Vocabulary"], ans: "a) Volume, c) Pitch" },
-    { q: "15. Match the hand movement/gesture in Column A with the emotion or meaning it symbolises in Column B.[span_49](start_span)[span_49](end_span)", opts: ["a) 1→P, 2 R, 3→S, 4→Q", "b) 1→R, 2 P, 3 S, 4→Q", "c) 1→R, 2 S, 3→P, 4→Q", "d) 1→Q, 2 P, 3→R, 4→S"], ans: "b) 1→R, 2 P, 3 S, 4→Q" },
+        // --- OFFICIAL NPTEL WEEK 2 QUESTIONS ---
+        { q: "16. In the glass-of-water example, a person who says the glass is 'half empty' is described as:", options: { a: "An optimist", b: "A pessimist", c: "An introvert", d: "An extrovert" }, ans: ["b"] },
+        { q: "17. According to Dr. Eric Berne, the attitude 'I'm okay, you are okay' represents a person who is:", options: { a: "Imposing", b: "Negative", c: "Positive and cooperative", d: "Introverted" }, ans: ["c"] },
+        { q: "18. According to Mehrabian, the percentage of communication that is verbal is:", options: { a: "7%", b: "35%", c: "38%", d: "55%" }, ans: ["a"] },
+        { q: "19. Which voice fault results from the inflammation of the larynx and usually needs a speech therapist?", options: { a: "Throatiness", b: "Breathiness", c: "Nasalization", d: "Hoarseness" }, ans: ["d"] },
+        { q: "20. In the Johari Window, the region representing information that is unknown by the person but known by others is the:", options: { a: "Open area", b: "Blind area", c: "Hidden area", d: "Unknown area" }, ans: ["b"] },
+        { q: "21. Which of the following is not listed as a feature of telephonic communication?", options: { a: "Clarity", b: "Courtesy", c: "Brevity", d: "Confrontation" }, ans: ["d"] },
+        { q: "22. Teleconferencing is generally considered ineffective for which of the following purpose?", options: { a: "Connecting geographically dispersed people", b: "Negotiations", c: "Arranging meetings at short notice", d: "Saving travel costs" }, ans: ["b"] },
+        { q: "23. The change in pitch produced by the vibration of the vocal cords is called", options: { a: "Intonation", b: "Articulation", c: "Inflection", d: "Modulation" }, ans: ["c"] },
+        { q: "24. Voice mail acts as a substitute to short memos and phone calls and helps solve ____ difficulties.", options: { a: "Special zone", b: "Time zone", c: "Communication zone", d: "Talk zone" }, ans: ["b"] },
+        { q: "25. Which two of the following are listed as ways to develop positivism? (Select all that apply)", options: { a: "Believe in your abilities", b: "Imitate others completely", c: "Concentrate on your goals", d: "Hide your weaknesses permanently" }, ans: ["a", "c"], isMulti: true },
+        { q: "26. While sending a call, which two of the following guidelines should be followed? (Select all that apply)", options: { a: "Recline in your chair", b: "Place your own call", c: "Plan an agenda", d: "Avoid identifying yourself" }, ans: ["b", "c"], isMulti: true },
+        { q: "27. Which two statements about voice mail are correct? (Select all that apply)", options: { a: "It provides immediate, specific feedback.", b: "It acts as a substitute to short memos and phone calls.", c: "It solves time-zone difficulties.", d: "It increases interoffice paperwork." }, ans: ["b", "c"], isMulti: true },
+        { q: "28. Which of the following points highlight the importance of telephonic communication? (Select all that apply)", options: { a: "Provides immediate face-to-face feedback", b: "Allows reading of facial expressions", c: "Bridges time and distance gaps", d: "Entails low cost" }, ans: ["c", "d"], isMulti: true },
+        { q: "29. Which two of the following are described as characteristics of voice? (Select all that apply)", options: { a: "Volume", b: "Grammar", c: "Pitch", d: "Vocabulary" }, ans: ["a", "c"], isMulti: true },
+        { q: "30. Match the hand movement/gesture: 1. Limp hands 2. Open hands 3. Clenched hands 4. Fists", options: { a: "1-P, 2-R, 3-S, 4-Q", b: "1-R, 2-P, 3-S, 4-Q", c: "1-R, 2-S, 3-P, 4-Q", d: "1-Q, 2-P, 3-R, 4-S" }, ans: ["b"] },
 
-    // Week 3[span_50](start_span)[span_50](end_span)[span_51](start_span)[span_51](end_span)[span_52](start_span)[span_52](end_span)
-    { q: "1. The term 'proxemics' is derived from which word?[span_53](start_span)[span_53](end_span)", opts: ["a) Property", "b) Proximity", "c) Procedure", "d) Proportion"], ans: "b) Proximity" },
-    { q: "2. The word 'haptics' is taken from a Greek word that means:[span_54](start_span)[span_54](end_span)", opts: ["a) I see", "b) I hear", "c) I touch", "d) I feel"], ans: "c) I touch" },
-    { q: "3. The prefix 'meta' means:[span_55](start_span)[span_55](end_span)", opts: ["a) Within", "b) Beyond", "c) Around", "d) Without"], ans: "b) Beyond" },
-    { q: "4. The study of time in communication is called[span_56](start_span)[span_56](end_span)", opts: ["a) Communemics", "b) Chronemics", "c) Kinesics", "d) Mimesis"], ans: "b) Chronemics" },
-    { q: "5. Hearing is only a _____ activity, whereas listening is a mental activity that requires conscious participation.[span_57](start_span)[span_57](end_span)", opts: ["a) Physiological", "b) Psychological", "c) Physical", "d) Social"], ans: "a) Physiological" },
-    { q: "6. According to the Space Zone in Proxemics, the social zone corresponds to a space distance of:[span_58](start_span)[span_58](end_span)", opts: ["a) Up to 18 inches", "b) 18 inches to 4 feet", "c) 4 feet to 12 feet", "d) 12 feet to 30 feet"], ans: "c) 4 feet to 12 feet" },
-    { q: "7. Listening in which the listener keeps protesting mentally instead of taking in the message is called:[span_59](start_span)[span_59](end_span)", opts: ["a) Attentive Listening", "b) Reflective Listening", "c) Combative Listening", "d) Appreciative Listening"], ans: "c) Combative Listening" },
-    { q: "8. In Thailand and Laos, it is considered rude for a stranger to touch a child on the head because the head is regarded as:[span_60](start_span)[span_60](end_span)", opts: ["a) the most fragile part of the body", "b) the home of the spirit or soul", "c) a mark of seniority", "d) reserved only for parents"], ans: "b) the home of the spirit or soul" },
-    { q: "9. 'Lying is done with words and also with silence.' This observation is attributed to:[span_61](start_span)[span_61](end_span)", opts: ["a) Edward T. Hall", "b) Ernest Hemingway", "c) Adrienne Rich", "d) Albert Mehrabian"], ans: "c) Adrienne Rich" },
-    { q: "10. Which of the following countries are classified as high context cultures? (Select all that apply)[span_62](start_span)[span_62](end_span)", opts: ["a) Germany", "b) Japan", "c) England", "d) Arab"], ans: "b) Japan, d) Arab" },
-    { q: "11. Which of the following are listed as internal factors that affect listening? (Select all that apply)[span_63](start_span)[span_63](end_span)", opts: ["a) Noise in the room", "b) State of mind", "c) Ego", "d) Choice of venue"], ans: "b) State of mind, c) Ego" },
-    { q: "12. Which of the following are factors that block or deter proper listening? (Select all that apply)[span_64](start_span)[span_64](end_span)", opts: ["a) Patience", "b) Adequate hearing", "c) Prejudging", "d) Ambiguity"], ans: "c) Prejudging, d) Ambiguity" },
-    { q: "13. Which two are stated advantages of silence in a speech? (Select all that apply)[span_65](start_span)[span_65](end_span)", opts: ["a) It relieves the audience", "b) It increases the speaker's rate of delivery", "c) It provides thinking time to the speaker", "d) It removes the need for preparation"], ans: "a) It relieves the audience, c) It provides thinking time to the speaker" },
-    { q: "14. Excessive use of non-words and vocalized pauses by a speaker may convey: (Select all that apply)[span_66](start_span)[span_66](end_span)", opts: ["a) Ambiguity or doubt", "b) Authority", "c) Lack of preparation", "d) Command over the subject"], ans: "a) Ambiguity or doubt, c) Lack of preparation" },
-    { q: "15. Match the type of listening in Column A with its situation in Column B, then choose the correct option.[span_67](start_span)[span_67](end_span)", opts: ["a) 1-P, 2-Q, 3-R, 4-S", "b) 1-Q, 2-P, 3-R, 4-S", "c) 1-Q, 2-P, 3-S, 4-R", "d) 1-R, 2-S, 3-Q, 4-P"], ans: "b) 1-Q, 2-P, 3-R, 4-S" },
+        // --- OFFICIAL NPTEL WEEK 3 QUESTIONS ---
+        { q: "31. The term 'proxemics' is derived from which word?", options: { a: "Property", b: "Proximity", c: "Procedure", d: "Proportion" }, ans: ["b"] },
+        { q: "32. The word 'haptics' is taken from a Greek word that means:", options: { a: "I see", b: "I hear", c: "I touch", d: "I feel" }, ans: ["c"] },
+        { q: "33. The prefix 'meta' means:", options: { a: "Within", b: "Beyond", c: "Around", d: "Without" }, ans: ["b"] },
+        { q: "34. The study of time in communication is called", options: { a: "Communemics", b: "Chronemics", c: "Kinesics", d: "Mimesis" }, ans: ["b"] },
+        { q: "35. Hearing is only a ___ activity, whereas listening is a mental activity.", options: { a: "Physiological", b: "Psychological", c: "Physical", d: "Social" }, ans: ["a"] },
+        { q: "36. According to the Space Zone in Proxemics, the social zone corresponds to a space distance of:", options: { a: "Up to 18 inches", b: "18 inches to 4 feet", c: "4 feet to 12 feet", d: "12 feet to 30 feet" }, ans: ["c"] },
+        { q: "37. Listening in which the listener keeps protesting mentally instead of taking in the message is called:", options: { a: "Attentive Listening", b: "Reflective Listening", c: "Combative Listening", d: "Appreciative Listening" }, ans: ["c"] },
+        { q: "38. In Thailand and Laos, it is considered rude for a stranger to touch a child on the head because the head is regarded as:", options: { a: "the most fragile part of the body", b: "the home of the spirit or soul", c: "a mark of seniority", d: "reserved only for parents" }, ans: ["b"] },
+        { q: "39. 'Lying is done with words and also with silence.' This observation is attributed to:", options: { a: "Edward T. Hall", b: "Ernest Hemingway", c: "Adrienne Rich", d: "Albert Mehrabian" }, ans: ["c"] },
+        { q: "40. Which of the following countries are classified as high context cultures? (Select all that apply)", options: { a: "Germany", b: "Japan", c: "England", d: "Arab" }, ans: ["b", "d"], isMulti: true },
+        { q: "41. Which of the following are listed as internal factors that affect listening? (Select all that apply)", options: { a: "Noise in the room", b: "State of mind", c: "Ego", d: "Choice of venue" }, ans: ["b", "c"], isMulti: true },
+        { q: "42. Which of the following are factors that block or deter proper listening? (Select all that apply)", options: { a: "Patience", b: "Adequate hearing", c: "Prejudging", d: "Ambiguity" }, ans: ["c", "d"], isMulti: true },
+        { q: "43. Which two are stated advantages of silence in a speech? (Select all that apply)", options: { a: "It relieves the audience", b: "It increases the speaker's rate of delivery", c: "It provides thinking time to the speaker", d: "It removes the need for preparation" }, ans: ["a", "c"], isMulti: true },
+        { q: "44. Excessive use of non-words and vocalized pauses by a speaker may convey: (Select all that apply)", options: { a: "Ambiguity or doubt", b: "Authority", c: "Lack of preparation", d: "Command over the subject" }, ans: ["a", "c"], isMulti: true },
+        { q: "45. Match the type of listening with its situation: 1. Content 2. Empathetic 3. Appreciative 4. Analytical", options: { a: "1-P, 2-Q, 3-R, 4-S", b: "1-Q, 2-P, 3-R, 4-S", c: "1-Q, 2-P, 3-S, 4-R", d: "1-R, 2-S, 3-Q, 4-P" }, ans: ["b"] },
 
-    // Week 4[span_68](start_span)[span_68](end_span)[span_69](start_span)[span_69](end_span)[span_70](start_span)[span_70](end_span)
-    { q: "1. What does the acronym WATNA stand for in negotiation?[span_71](start_span)[span_71](end_span)", opts: ["a) Worst Alternative to a Negotiated Agreement", "b) Wise Alternative to a Negotiated Agreement", "c) Worst Argument to a Negotiation Approach", "d) Workable Alternative to a New Agreement"], ans: "a) Worst Alternative to a Negotiated Agreement" },
-    { q: "2. To which former US President is attributed the following line: 'Let us never negotiate out of fear, but let us never fear to negotiate[span_72](start_span)'[span_72](end_span)", opts: ["a) Abraham Lincoln", "b) John F. Kennedy", "c) Franklin D. Roosevelt", "d) Woodrow Wilson"], ans: "b) John F. Kennedy" },
-    { q: "3. According to Alan Fowler, negotiation is any form of meeting or discussion in which the parties use argument and persuasion to arrive at:[span_73](start_span)[span_73](end_span)", opts: ["a) A unilateral decision favouring the stronger party", "b) An agreed decision or action", "c) A legally binding written contract", "d) A postponement of the conflict"], ans: "b) An agreed decision or action" },
-    { q: "4. To which of the following does a real negotiation proceed through?[span_74](start_span)[span_74](end_span)", opts: ["a) Authority, not instruction", "b) Instruction and persuasion, not authority and imposition", "c) Imposition backed by seniority", "d) Silence and withdrawal"], ans: "b) Instruction and persuasion, not authority and imposition" },
-    { q: "5. In Hong Kong, hospital rooms avoid the number four because the sound shi is a homophone for:[span_75](start_span)[span_75](end_span)", opts: ["a) Poverty", "b) Illness", "c) Death", "d) Bad luck in trade"], ans: "c) Death" },
-    { q: "6. Alfred G. Smith, in Communication and Culture, defines culture as:[span_76](start_span)[span_76](end_span)", opts: ["a) A code we learn and share", "b) The sum of a nation's laws and religion", "c) An unchanging set of inherited traits", "d) The visible customs of a majority community"], ans: "a) A code we learn and share" },
-    { q: "7. Which style, according to the colour-based classification of negotiation styles, is a mix of the competitive and the cooperative approaches and is recommended for negotiators?[span_77](start_span)[span_77](end_span)", opts: ["a) Red style", "b) Blue style", "c) Purple style", "d) Green style"], ans: "c) Purple style" },
-    { q: "8. According to McGregor, the modern style of management is built on a balance between:[span_78](start_span)[span_78](end_span)", opts: ["a) Control and freedom", "b) Profit and loss", "c) Reward and punishment", "d) Authority and seniority"], ans: "a) Control and freedom" },
-    { q: "9. ZOPA stands for the ______ of possible agreement, the space in which an agreement can be reached.[span_79](start_span)[span_79](end_span)", opts: ["a) area", "b) zone", "c) medium", "d) arena"], ans: "b) zone" },
-    { q: "10. Which of the following are listed as qualities of a good negotiator? (Select all that apply)[span_80](start_span)[span_80](end_span)", opts: ["a) Confidence", "b) Rigidity", "c) Honesty", "d) Aggression"], ans: "a) Confidence, c) Honesty" },
-    { q: "11. In a formal negotiation, which of the following are pre-announced beforehand to both parties? (Select all that apply)[span_81](start_span)[span_81](end_span)", opts: ["a) The personal relationship of the parties", "b) The agenda", "c) The fear factor involved", "d) The venue, date and time"], ans: "b) The agenda, d) The venue, date and time" },
-    { q: "12. Which two are listed among the subjective factors that affect negotiation? (Select all that apply)[span_82](start_span)[span_82](end_span)", opts: ["a) The upper and lower limits of concession", "b) Personal relationship between the parties", "c) The fear factor", "d) The written summary of the agreement"], ans: "b) Personal relationship between the parties, c) The fear factor" },
-    { q: "13. Which of the following peoples are described as belonging to the low-context culture? (Select all that apply)[span_83](start_span)[span_83](end_span)", opts: ["a) Japanese", "b) Arabs", "c) North Americans", "d) Germans"], ans: "c) North Americans, d) Germans" },
-    { q: "14. According to Maslow's hierarchy, which of the following count as physiological (basic) needs? (Select all that apply)[span_84](start_span)[span_84](end_span)", opts: ["a) Food", "b) Creativity", "c) Morality", "d) Shelter"], ans: "a) Food, d) Shelter" },
-    { q: "15. Match the culture/country with the practice described in the lectures.[span_85](start_span)[span_85](end_span)", opts: ["a) 1-R, 2-T, 3-P, 4-Q, 5-S", "b) 1-T, 2-R, 3-Q, 4-P, 5-S", "c) 1-P, 2-T, 3-R, 4-S, 5-Q", "d) 1-R, 2-P, 3-T, 4-S, 5-Q"], ans: "c) 1-P, 2-T, 3-R, 4-S, 5-Q" }
-  ];
+        // --- OFFICIAL NPTEL WEEK 4 QUESTIONS ---
+        { q: "46. What does the acronym WATNA stand for in negotiation?", options: { a: "Worst Alternative to a Negotiated Agreement", b: "Wise Alternative to a Negotiated Agreement", c: "Worst Argument to a Negotiation Approach", d: "Workable Alternative to a New Agreement" }, ans: ["a"] },
+        { q: "47. To which former US President is attributed the following line: 'Let us never negotiate out of fear, but let us never fear to negotiate'", options: { a: "Abraham Lincoln", b: "John F. Kennedy", c: "Franklin D. Roosevelt", d: "Woodrow Wilson" }, ans: ["b"] },
+        { q: "48. According to Alan Fowler, negotiation is any form of meeting or discussion in which the parties use argument and persuasion to arrive at:", options: { a: "A unilateral decision favouring the stronger party", b: "An agreed decision or action", c: "A legally binding written contract", d: "A postponement of the conflict" }, ans: ["b"] },
+        { q: "49. To which of the following does a real negotiation proceed through?", options: { a: "Authority, not instruction", b: "Instruction and persuasion, not authority and imposition", c: "Imposition backed by seniority", d: "Silence and withdrawal" }, ans: ["b"] },
+        { q: "50. In Hong Kong, hospital rooms avoid the number four because the sound shi is a homophone for:", options: { a: "Poverty", b: "Illness", c: "Death", d: "Bad luck in trade" }, ans: ["c"] },
+        { q: "51. Alfred G. Smith, in Communication and Culture, defines culture as:", options: { a: "A code we learn and share", b: "The sum of a nation's laws and religion", c: "An unchanging set of inherited traits", d: "The visible customs of a majority community" }, ans: ["a"] },
+        { q: "52. Which style, according to the colour-based classification of negotiation styles, is a mix of the competitive and the cooperative approaches and is recommended for negotiators?", options: { a: "Red style", b: "Blue style", c: "Purple style", d: "Green style" }, ans: ["c"] },
+        { q: "53. According to McGregor, the modern style of management is built on a balance between:", options: { a: "Control and freedom", b: "Profit and loss", c: "Reward and punishment", d: "Authority and seniority" }, ans: ["a"] },
+        { q: "54. ZOPA stands for the ___ of possible agreement, the space in which an agreement can be reached.", options: { a: "area", b: "zone", c: "medium", d: "arena" }, ans: ["b"] },
+        { q: "55. Which of the following are listed as qualities of a good negotiator? (Select all that apply)", options: { a: "Confidence", b: "Rigidity", c: "Honesty", d: "Aggression" }, ans: ["a", "c"], isMulti: true },
+        { q: "56. In a formal negotiation, which of the following are pre-announced beforehand to both parties? (Select all that apply)", options: { a: "The personal relationship of the parties", b: "The agenda", c: "The fear factor involved", d: "The venue, date and time" }, ans: ["b", "d"], isMulti: true },
+        { q: "57. Which two are listed among the subjective factors that affect negotiation? (Select all that apply)", options: { a: "The upper and lower limits of concession", b: "Personal relationship between the parties", c: "The fear factor", d: "The written summary of the agreement" }, ans: ["b", "c"], isMulti: true },
+        { q: "58. Which of the following peoples are described as belonging to the low-context culture? (Select all that apply)", options: { a: "Japanese", b: "Arabs", c: "North Americans", d: "Germans" }, ans: ["c", "d"], isMulti: true },
+        { q: "59. According to Maslow's hierarchy, which of the following count as physiological (basic) needs? (Select all that apply)", options: { a: "Food", b: "Creativity", c: "Morality", d: "Shelter" }, ans: ["a", "d"], isMulti: true },
+        { q: "60. Match the culture/country with the practice described: 1. Bulgaria 2. Japan 3. Sicily 4. Mexicans 5. Americans", options: { a: "1-R, 2-T, 3-P, 4-Q, 5-S", b: "1-T, 2-R, 3-Q, 4-P, 5-S", c: "1-P, 2-T, 3-R, 4-S, 5-Q", d: "1-R, 2-P, 3-T, 4-S, 5-Q" }, ans: ["c"] },
 
-  const quizContainer = document.getElementById('quiz');
+        // --- MOCK PRACTICE EXAM SUPPLEMENT (Q61 - 160) ---
+        { q: "61. What is the primary focus of soft skills?", options: { a: "Technical proficiency", b: "Interpersonal and behavioral skills", c: "Machine operation", d: "Financial accounting" }, ans: ["b"] },
+        { q: "62. Which of the following is considered a hard skill rather than a soft skill?", options: { a: "Leadership", b: "Teamwork", c: "Software programming", d: "Empathy" }, ans: ["c"] },
+        { q: "63. What is the first step in the communication process?", options: { a: "Decoding", b: "Transmitting", c: "Receiving", d: "Ideation" }, ans: ["d"] },
+        { q: "64. What does 'encoding' refer to in communication?", options: { a: "Converting ideas into a message format", b: "Interpreting the received message", c: "Choosing the transmission medium", d: "Providing feedback" }, ans: ["a"] },
+        { q: "65. The communication process is considered incomplete without what element?", options: { a: "A physical medium", b: "Feedback", c: "Semantic noise", d: "A formal setting" }, ans: ["b"] },
+        { q: "66. Which type of listening involves understanding the speaker's emotional state and feelings?", options: { a: "Comprehensive listening", b: "Discriminative listening", c: "Empathetic listening", d: "Critical listening" }, ans: ["c"] },
+        { q: "67. What is a major psychological barrier to effective communication?", options: { a: "Geographic distance", b: "Preconceived notions or prejudice", c: "Poor internet connection", d: "Ambiguous vocabulary" }, ans: ["b"] },
+        { q: "68. In telephonic communication, what compensates for the lack of visual cues?", options: { a: "Complex jargon", b: "Voice modulation, tone, and pitch", c: "Loud volume", d: "Short sentences" }, ans: ["b"] },
+        { q: "69. How do hard skills and soft skills primarily differ?", options: { a: "Soft skills are technical.", b: "Hard skills are quantifiable; soft skills relate to human interaction.", c: "Hard skills are only for managers.", d: "Soft skills are mathematical." }, ans: ["b"] },
+        { q: "70. What is 'Semantic Noise' in communication?", options: { a: "Static on a phone line", b: "Misunderstandings caused by complex vocabulary", c: "Background chatter", d: "Physical hearing impairments" }, ans: ["b"] },
+        { q: "71. What is Proxemics?", options: { a: "The study of vocal tone", b: "The study of physical space and distance", c: "The study of eye contact", d: "The study of time perception" }, ans: ["b"] },
+        { q: "72. What does Haptics refer to?", options: { a: "Language of touch", b: "Body posture", c: "Facial expressions", d: "Use of artifacts" }, ans: ["a"] },
+        { q: "73. According to Ray Birdwhistell, approximately what percentage of face-to-face communication is verbal?", options: { a: "10%", b: "35%", c: "65%", d: "90%" }, ans: ["b"] },
+        { q: "74. Which spatial zone is typically reserved for close family and intimate friends?", options: { a: "Public zone", b: "Social zone", c: "Personal zone", d: "Intimate zone" }, ans: ["d"] },
+        { q: "75. Kinesics is the study of what aspect of communication?", options: { a: "Touch", b: "Body language, posture, and gestures", c: "Spatial distance", d: "Vocal pitch" }, ans: ["b"] },
+        { q: "76. Which non-verbal vocal cue is most likely to convey authority?", options: { a: "High breathiness", b: "Soft volume", c: "Rapid speech rate", d: "A lowered pitch and steady pace" }, ans: ["d"] },
+        { q: "77. Chronemics relates to the study of what in human communication?", options: { a: "Perception and use of time", b: "Perception of color", c: "Physical artifacts", d: "Role of silence" }, ans: ["a"] },
+        { q: "78. What does Paralanguage encompass?", options: { a: "Written text formatting", b: "Tone, pitch, volume, and speaking rate", c: "Hand gestures", d: "Distance between speakers" }, ans: ["b"] },
+        { q: "79. Which facial expression is recognized universally across cultures?", options: { a: "Confusion", b: "Sarcasm", c: "Happiness (the smile)", d: "Boredom" }, ans: ["c"] },
+        { q: "80. Oculesics focuses on which communicative behavior?", options: { a: "Hand movements", b: "Walking speed", c: "Eye contact and eye movement", d: "Use of perfume" }, ans: ["c"] },
+        { q: "81. What is the ideal desired outcome in a professional negotiation?", options: { a: "Win-Lose", b: "Lose-Win", c: "Lose-Lose", d: "Win-Win" }, ans: ["d"] },
+        { q: "82. What does BATNA stand for in negotiation strategy?", options: { a: "Best Agreement To Negotiate", b: "Best Alternative to a Negotiated Agreement", c: "Bargaining Agreement Through Negotiation", d: "Basic Alternative To Neutral" }, ans: ["b"] },
+        { q: "83. Which communication style focuses on the direct and honest exchange of opinions?", options: { a: "Socratic", b: "Reflective", c: "Noble", d: "Magistrate" }, ans: ["c"] },
+        { q: "84. How does ethnocentrism negatively impact cross-cultural communication?", options: { a: "It causes individuals to judge other cultures strictly by their own standards.", b: "Forces a global language.", c: "Eliminates non-verbal cues.", d: "Speeds up negotiation." }, ans: ["a"] },
+        { q: "85. What characterizes a 'high-context' culture?", options: { a: "Explicit written instructions", b: "Direct verbal communication", c: "Heavy reliance on non-verbal cues and implicit understandings", d: "No social hierarchy" }, ans: ["c"] },
+        { q: "86. Which stage of negotiation directly involves the exchange of proposals and concessions?", options: { a: "Preparation", b: "Bargaining", c: "Implementation", d: "Closure" }, ans: ["b"] },
+        { q: "87. What defines 'active listening'?", options: { a: "Listening while formulating a reply", b: "Hearing words but ignoring subtext", c: "Fully concentrating, processing, and responding thoughtfully", d: "Interrupting to show engagement" }, ans: ["c"] },
+        { q: "88. In Fisher's model of group interaction, in which stage does group consensus begin to form?", options: { a: "Orientation", b: "Conflict", c: "Emergence", d: "Reinforcement" }, ans: ["c"] },
+        { q: "89. What is the 'Socratic' style of communication?", options: { a: "Giving direct commands", b: "Guiding conversations through probing questions", c: "Avoiding conflict", d: "Using excessive body language" }, ans: ["b"] },
+        { q: "90. What is the primary cause of a communication breakdown?", options: { a: "Electronic mediums", b: "A failure at any point in encoding, transmitting, or decoding", c: "Speaking too softly", d: "Having too much time to prepare" }, ans: ["b"] },
+        { q: "91. What is the primary function of a formal business letter?", options: { a: "Chat casually with coworkers", b: "Communicate officially with external stakeholders", c: "Brainstorm internal ideas", d: "Replace in-person meetings" }, ans: ["b"] },
+        { q: "92. In a 'Full Block' format business letter, how is the text aligned?", options: { a: "Indented on every paragraph", b: "Centered on the page", c: "Flush with the left margin", d: "Flush with the right margin" }, ans: ["c"] },
+        { q: "93. What does the abbreviation 'Encl.' indicate at the bottom of a formal letter?", options: { a: "End of communication", b: "Encrypted file", c: "Documents are enclosed with the letter", d: "Enter details below" }, ans: ["c"] },
+        { q: "94. What is the primary objective of an Executive Summary in a business report?", options: { a: "To list the references", b: "To provide a standalone overview of methodology, findings, and conclusions", c: "To introduce the team", d: "To provide raw data tables" }, ans: ["b"] },
+        { q: "95. What is a Memorandum (Memo) typically used for?", options: { a: "Press releases", b: "Formal external communication", c: "Formal internal communication within an organization", d: "Personal letters" }, ans: ["c"] },
+        { q: "96. Which section of a formal report contains supplementary material like raw data, charts, and questionnaires?", options: { a: "Introduction", b: "Table of Contents", c: "Executive Summary", d: "Appendices" }, ans: ["d"] },
+        { q: "97. What is the correct sequential flow for writing a report?", options: { a: "Drafting -> Editing -> Planning", b: "Planning -> Data Collection -> Organizing -> Drafting -> Editing", c: "Organizing -> Planning -> Editing", d: "Data Collection -> Editing -> Drafting" }, ans: ["b"] },
+        { q: "98. In business emails, what is the function of the BCC field?", options: { a: "Highlight urgent emails", b: "Format text", c: "Send a copy without revealing the address to other recipients", d: "Bounce an email" }, ans: ["c"] },
+        { q: "99. What tone should always be maintained in a formal business report?", options: { a: "Emotional and subjective", b: "Sarcastic and witty", c: "Objective, professional, and factual", d: "Casual and conversational" }, ans: ["c"] },
+        { q: "100. Using the active voice makes technical writing:", options: { a: "Harder to read", b: "More direct and concise", c: "Longer", d: "More confusing" }, ans: ["b"] },
+        { q: "101. According to Tuckman's group development model, what is the chronological order of stages?", options: { a: "Storming, Forming, Norming, Performing", b: "Forming, Storming, Norming, Performing, Adjourning", c: "Norming, Forming, Performing", d: "Forming, Norming, Storming" }, ans: ["b"] },
+        { q: "102. In which of Tuckman's stages is interpersonal conflict and power-struggling most prominent?", options: { a: "Forming", b: "Storming", c: "Norming", d: "Performing" }, ans: ["b"] },
+        { q: "103. What characterizes the 'Performing' stage of a group?", options: { a: "Confusion over roles", b: "High synergy, autonomy, and efficient goal achievement", c: "Breaking up the team", d: "Establishing initial ground rules" }, ans: ["b"] },
+        { q: "104. Which leadership style involves making unilateral decisions without consulting the team?", options: { a: "Democratic", b: "Laissez-faire", c: "Autocratic", d: "Transformational" }, ans: ["c"] },
+        { q: "105. What is the defining trait of Democratic leadership?", options: { a: "Absolute control by the leader", b: "Facilitating shared, participative decision-making", c: "Complete lack of rules", d: "Leading strictly by fear" }, ans: ["b"] },
+        { q: "106. In the context of recruitment, what is the primary purpose of a Group Discussion (GD)?", options: { a: "To test written communication", b: "To evaluate technical coding skills", c: "To evaluate teamwork, leadership, listening, and analytical skills", d: "To see who can speak the loudest" }, ans: ["c"] },
+        { q: "107. What is 'Groupthink'?", options: { a: "A creative brainstorming session", b: "A psychological phenomenon where desire for consensus overrides critical analysis", c: "The collective intelligence of a diverse team", d: "A conflict resolution strategy" }, ans: ["b"] },
+        { q: "108. What role does a 'facilitator' play in a meeting or GD?", options: { a: "They dictate all the rules", b: "They take minutes silently", c: "They guide the process and ensure equal participation", d: "They argue with every participant" }, ans: ["c"] },
+        { q: "109. What defines an 'interdependent' group?", options: { a: "Members work entirely in isolation", b: "Members share no common goals", c: "Members rely on each other's skills and contributions to achieve an objective", d: "Members compete aggressively" }, ans: ["c"] },
+        { q: "110. What is the 'Grapevine' in organizational communication?", options: { a: "The official company newsletter", b: "Formal performance reviews", c: "The informal, unofficial communication network", d: "The CEO's direct memo line" }, ans: ["c"] },
+        { q: "111. What is the critical first step before designing a presentation?", options: { a: "Choosing a slide template", b: "Memorizing jokes", c: "Analyzing the demographics and expectations of the audience", d: "Printing handouts" }, ans: ["c"] },
+        { q: "112. What is the standard structural flow of a formal presentation?", options: { a: "Body -> Conclusion -> Introduction", b: "Introduction -> Body -> Conclusion", c: "Conclusion -> Body -> Introduction", d: "Introduction -> Conclusion -> Body" }, ans: ["b"] },
+        { q: "113. What does the '6x6 rule' for presentation slides recommend?", options: { a: "6 slides total", b: "6 fonts and 6 colors", c: "No more than six words per line, and no more than six lines per slide", d: "Presenting 6 times a month" }, ans: ["c"] },
+        { q: "114. What is the clinical term for the fear of public speaking?", options: { a: "Claustrophobia", b: "Agoraphobia", c: "Glossophobia", d: "Acrophobia" }, ans: ["c"] },
+        { q: "115. What is an 'impromptu' speech?", options: { a: "A speech read directly from a manuscript", b: "A heavily rehearsed presentation", c: "A speech delivered spontaneously with little to no prior preparation", d: "A speech delivered using a teleprompter" }, ans: ["c"] },
+        { q: "116. What is the primary difference between a Resume and a CV?", options: { a: "Resume is for academia; CV is corporate", b: "A resume is a brief summary; a CV is a comprehensive, multi-page history", c: "CV does not include contact info", d: "There is no difference" }, ans: ["b"] },
+        { q: "117. Which resume format lists work experience starting with the most recent job first?", options: { a: "Functional format", b: "Targeted format", c: "Reverse-chronological format", d: "Narrative format" }, ans: ["c"] },
+        { q: "118. What is a 'functional' resume?", options: { a: "Lists jobs in date order", b: "Highlights specific skills and competencies rather than chronological history", c: "Only functions for entry-level roles", d: "Consists entirely of references" }, ans: ["b"] },
+        { q: "119. What is the purpose of a Cover Letter?", options: { a: "To repeat the resume exactly", b: "Provide a physical folder", c: "To introduce the applicant and explain why they are a specific fit for the company", d: "Negotiate salary" }, ans: ["c"] },
+        { q: "120. What is 'extemporaneous' speaking?", options: { a: "Reading verbatim from a script", b: "Speaking entirely off the cuff with zero preparation", c: "Delivering a prepared and rehearsed speech using only brief notes", d: "Having someone else speak for you" }, ans: ["c"] },
+        { q: "121. What does the STAR methodology stand for in behavioral interviews?", options: { a: "Strategy, Tactics, Action, Result", b: "Situation, Task, Action, Result", c: "System, Target, Analysis, Review", d: "Skill, Talent, Assessment, Reliability" }, ans: ["b"] },
+        { q: "122. According to Daniel Goleman, which component of Emotional Intelligence involves recognizing one's own moods?", options: { a: "Social skill", b: "Self-regulation", c: "Empathy", d: "Self-awareness" }, ans: ["d"] },
+        { q: "123. What defines 'empathy' in the context of EQ?", options: { a: "Pitying someone", b: "The ability to cognitively and emotionally understand the feelings of another", c: "Agreeing with everything", d: "Ignoring emotions" }, ans: ["b"] },
+        { q: "124. What is the purpose of a 'stress interview'?", options: { a: "To make the candidate feel comfortable", b: "Evaluate technical coding speeds", c: "To observe how a candidate reacts to pressure, hostility, or unexpected discomfort", d: "To check medical history" }, ans: ["c"] },
+        { q: "125. What does 'self-regulation' mean in emotional intelligence?", options: { a: "Suppressing all emotions", b: "The ability to manage and redirect disruptive emotions and impulses", c: "Regulating coworkers", d: "Following rules blindly" }, ans: ["b"] },
+        { q: "126. What is Critical Thinking?", options: { a: "Always criticizing others", b: "The objective analysis, evaluation, and synthesis of information to form a reasoned judgment", c: "Thinking very rapidly", d: "Memorizing data" }, ans: ["b"] },
+        { q: "127. How should a candidate handle an interview question they do not know the answer to?", options: { a: "Make up a lie", b: "Change the subject", c: "Admit they do not know, but demonstrate a logical approach to finding the answer", d: "End the interview" }, ans: ["c"] },
+        { q: "128. When should a candidate send a follow-up or 'thank you' email after a job interview?", options: { a: "Immediately from the parking lot", b: "Within 24 to 48 hours", c: "After two weeks", d: "Only if they receive a job offer" }, ans: ["b"] },
+        { q: "129. What is a 'panel interview'?", options: { a: "Conducted over the phone", b: "Candidates interview each other", c: "Conducted by a committee of multiple interviewers simultaneously", d: "A written questionnaire" }, ans: ["c"] },
+        { q: "130. What is the 'Halo Effect' in interview bias?", options: { a: "Giving extra points for dress", b: "When one singular positive trait overly influences the entire evaluation", c: "Assuming a candidate is perfect because they are nervous", d: "A video lighting technique" }, ans: ["b"] },
+        { q: "131. What is 'intrapersonal' communication?", options: { a: "Between two organizations", b: "Within a large crowd", c: "Internal communication with oneself (e.g., internal monologue)", d: "Between two individuals" }, ans: ["c"] },
+        { q: "132. What does 'jargon' refer to?", options: { a: "Universal language", b: "Teen slang", c: "Highly specialized terminology understood only by a specific profession", d: "Non-verbal hand signals" }, ans: ["c"] },
+        { q: "133. Jargon should always be used in cross-departmental presentations to sound professional.", options: { a: "True", b: "False" }, ans: ["b"] },
+        { q: "134. According to Gestalt psychology, what is the principle of 'Closure'?", options: { a: "The brain's tendency to perceive incomplete shapes as a complete, unified whole", b: "Grouping similar items", c: "Perceiving items in a straight line", d: "The psychological end of a conversation" }, ans: ["a"] },
+        { q: "135. What is 'cognitive dissonance'?", options: { a: "Semantic noise", b: "Mental discomfort experienced when holding two conflicting beliefs simultaneously", c: "Physical hearing disorder", d: "Memory loss" }, ans: ["b"] },
+        { q: "136. How does 'hearing' fundamentally differ from 'listening'?", options: { a: "Hearing requires intense concentration", b: "Hearing is a passive physiological act; listening is an active cognitive process", c: "They are identical", d: "Hearing is only words" }, ans: ["b"] },
+        { q: "137. What is the primary function of 'Minutes of a Meeting'?", options: { a: "Record exact duration", b: "Serve as an official, written historical record of discussions and decisions", c: "Schedule next meeting", d: "Evaluate performance" }, ans: ["b"] },
+        { q: "138. What defines an 'assertive' communicator?", options: { a: "Dominates conversation", b: "Clearly expresses their needs while respecting the rights of others", c: "Avoids conflict entirely", d: "Manipulates others covertly" }, ans: ["b"] },
+        { q: "139. Which of the following is an example of an 'open-ended' question?", options: { a: "Did you graduate in 2020?", b: "Do you know Java?", c: "Can you walk me through a time when a project failed?", d: "Are you willing to relocate?" }, ans: ["c"] },
+        { q: "140. Which physical sense is considered the most difficult to represent visually in a presentation?", options: { a: "Light", b: "Space", c: "Color", d: "Smell" }, ans: ["d"] },
+        { q: "141. What does 'synergy' mean in the context of teamwork?", options: { a: "Group splits tasks", b: "The combined output of the group exceeds the sum of what individuals could achieve alone", c: "Everyone agrees on the first idea", d: "Leader does all the work" }, ans: ["b"] },
+        { q: "142. What is a 'mock interview'?", options: { a: "Designed to humiliate", b: "A simulated practice interview to evaluate performance prior to the real event", c: "For a fake job posting", d: "Conducted by AI" }, ans: ["b"] },
+        { q: "143. In conflict resolution, what is the 'Compromising' strategy?", options: { a: "One party wins everything", b: "Both parties make concessions and give up something to reach a middle ground", c: "Conflict is completely ignored", d: "Collaborate to expand resources" }, ans: ["b"] },
+        { q: "144. What is the ultimate goal of the 'Collaborating' strategy in conflict resolution?", options: { a: "To find a creative solution that fully satisfies all parties (Win-Win)", b: "Force the other party to surrender", c: "Delay decision indefinitely", d: "Compromise equally" }, ans: ["a"] },
+        { q: "145. What should be included in a resume's 'Career Objective'?", options: { a: "List of hobbies", b: "Salary demands", c: "A concise statement aligning short-term goals with the value brought to the role", d: "References" }, ans: ["c"] },
+        { q: "146. What is the danger of 'Ambiguity' in technical communication?", options: { a: "Makes text too long", b: "Leaves the message open to multiple interpretations, leading to errors", c: "Forces reader to use a dictionary", d: "Looks unprofessional" }, ans: ["b"] },
+        { q: "147. How do non-verbal cues interact with verbal communication?", options: { a: "Only contradict words", b: "They can reinforce, contradict, substitute, or regulate spoken words", c: "Completely unrelated", d: "Always mirror exactly" }, ans: ["b"] },
+        { q: "148. What does 'pitch' refer to in oral communication?", options: { a: "Speed of speaking", b: "Volume of voice", c: "The highness or lowness of a speaker's vocal tone", d: "Persuasive argument" }, ans: ["c"] },
+        { q: "149. Assertion (A): Maintaining steady eye contact is important during a presentation. Reason (R): It projects confidence and allows the speaker to gauge audience engagement.", options: { a: "Both A and R are true, and R is the correct explanation of A", b: "Both A and R are true, but R is not the correct explanation of A", c: "A is true, but R is false", d: "A is false, but R is true" }, ans: ["a"] },
+        { q: "150. Consider the following statement: Non-verbal signs do not have a long-term effect on how a person is evaluated later on.", options: { a: "True", b: "False" }, ans: ["b"] },
+        { q: "151. What is a primary limitation of written communication compared to face-to-face interaction?", options: { a: "Cannot be archived", b: "Lacks immediate vocalic and kinetic feedback to clarify intent", c: "Takes too much physical energy", d: "Cannot convey complex ideas" }, ans: ["b"] },
+        { q: "152. In a Group Discussion, what is the role of a 'timekeeper'?", options: { a: "Correct grammar mistakes", b: "Record minutes", c: "Monitor the clock and ensure the group covers all points within the allotted time", d: "Fetch coffee" }, ans: ["c"] },
+        { q: "153. What is a 'behavioral' interview question designed to reveal?", options: { a: "Future aspirations", b: "Technical certifications", c: "How a candidate acted in past situations, predicting future performance", d: "Personality types" }, ans: ["c"] },
+        { q: "154. What is the definition of 'Motivation' within Emotional Intelligence?", options: { a: "Working solely for a higher salary", b: "The internal drive to pursue goals for personal satisfaction and achievement", c: "Forcing others to work harder", d: "Fear of losing job" }, ans: ["b"] },
+        { q: "155. What constitutes a 'physical barrier' to communication?", options: { a: "Prejudice and bias", b: "Environmental factors like distance, closed doors, or loud noise", c: "Lack of common language", d: "Emotional distress" }, ans: ["b"] },
+        { q: "156. In report writing, what is the function of the 'Table of Contents'?", options: { a: "Summarize conclusions", b: "Provide a navigational roadmap of sections and page numbers", c: "List external sources", d: "Introduce authors" }, ans: ["b"] },
+        { q: "157. What is the 'Social Skill' component of Emotional Intelligence?", options: { a: "Ability to memorize names", b: "The ability to manage relationships, build networks, and navigate social complexities", c: "Organizing office parties", d: "Having social media followers" }, ans: ["b"] },
+        { q: "158. Why are soft skills considered highly crucial for engineers and technical professionals?", options: { a: "Technical skills are no longer required", b: "Engineers need to write novels", c: "Technical solutions require collaboration, leadership, and clear communication to implement", d: "Soft skills are easier to learn" }, ans: ["c"] },
+        { q: "159. What does 'synchronous' communication mean?", options: { a: "Happens over email", b: "Occurs in real-time with immediate responses", c: "Between machines", d: "Recorded for later viewing" }, ans: ["b"] },
+        { q: "160. What is a SWOT analysis used for in interview preparation?", options: { a: "Calculate expected salary", b: "To help articulate Strengths, Weaknesses, Opportunities, and Threats during self-evaluation", c: "Analyze stock price", d: "Map out driving route" }, ans: ["b"] }
+    ];
 
-  quizData.forEach((item, index) => {
-    // Create Question Block
-    const qBlock = document.createElement('div');
-    qBlock.className = 'question-block';
-    
-    // Add Question Text
-    const qText = document.createElement('div');
-    qText.className = 'question-text';
-    qText.innerText = item.q;
-    qBlock.appendChild(qText);
-    
-    // Add Options List
-    const optionsList = document.createElement('ul');
-    optionsList.className = 'options';
-    
-    // Add Feedback Element (Hidden initially)
-    const feedback = document.createElement('div');
-    feedback.className = 'feedback';
-    feedback.innerText = "Correct Answer(s): " + item.ans;
+    const container = document.getElementById('quiz-container');
 
-    item.opts.forEach(opt => {
-      const li = document.createElement('li');
-      const btn = document.createElement('button');
-      btn.className = 'option-btn';
-      btn.innerText = opt;
-      btn.onclick = () => {
-        // Show correct answer for this block when any option is selected
-        feedback.classList.add('show');
-      };
-      li.appendChild(btn);
-      optionsList.appendChild(li);
+    // Render Quiz
+    quizData.forEach((item, index) => {
+        const questionBlock = document.createElement('div');
+        questionBlock.className = 'question-block';
+        questionBlock.id = `qblock-${index}`;
+
+        const questionText = document.createElement('div');
+        questionText.className = 'question-text';
+        questionText.innerText = item.q + (item.isMulti ? " (Multiple Select)" : "");
+        questionBlock.appendChild(questionText);
+
+        const optionsList = document.createElement('ul');
+        optionsList.className = 'options';
+
+        for (const [key, value] of Object.entries(item.options)) {
+            const li = document.createElement('li');
+            const label = document.createElement('label');
+            
+            const input = document.createElement('input');
+            input.type = item.isMulti ? 'checkbox' : 'radio';
+            input.name = `question${index}`;
+            input.value = key;
+            input.id = `q${index}_${key}`;
+
+            label.appendChild(input);
+            label.appendChild(document.createTextNode(` ${key}) ${value}`));
+            li.appendChild(label);
+            optionsList.appendChild(li);
+        }
+
+        const feedbackBlock = document.createElement('div');
+        feedbackBlock.className = 'feedback';
+        feedbackBlock.id = `feedback-${index}`;
+
+        questionBlock.appendChild(optionsList);
+        questionBlock.appendChild(feedbackBlock);
+        container.appendChild(questionBlock);
     });
 
-    qBlock.appendChild(optionsList);
-    qBlock.appendChild(feedback);
-    quizContainer.appendChild(qBlock);
-  });
+    function submitQuiz() {
+        let score = 0;
+
+        quizData.forEach((item, index) => {
+            const inputs = document.querySelectorAll(`input[name="question${index}"]:checked`);
+            const selectedAnswers = Array.from(inputs).map(input => input.value).sort();
+            const correctAnswers = item.ans.sort();
+            
+            const feedbackBlock = document.getElementById(`feedback-${index}`);
+            feedbackBlock.style.display = 'block';
+
+            const isCorrect = JSON.stringify(selectedAnswers) === JSON.stringify(correctAnswers);
+
+            if (isCorrect) {
+                score++;
+                feedbackBlock.className = 'feedback correct';
+                feedbackBlock.innerText = 'Correct! The answer is: ' + item.ans.join(', ').toUpperCase();
+            } else {
+                feedbackBlock.className = 'feedback incorrect';
+                feedbackBlock.innerText = 'Incorrect. The correct answer is: ' + item.ans.join(', ').toUpperCase();
+            }
+        });
+
+        const scoreDisplay = document.getElementById('score-display');
+        scoreDisplay.innerText = `You scored ${score} out of ${quizData.length}!`;
+        
+        // Scroll to bottom to see score
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
 </script>
 
 </body>
 </html>
+
